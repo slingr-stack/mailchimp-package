@@ -1,0 +1,1206 @@
+{
+  "endpointName": "mailchimp",
+  "fileName": "functions",
+  "apiDescriptors": [
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/batch-webhooks/:batch_webhook_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaign-folders/:folder_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/feedback/:feedback_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/carts/:cart_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/carts/:cart_id/lines/:line_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/customers/:customer_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/orders/:order_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/orders/:order_id/lines/:line_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id/images/:image_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/file-manager/files/:file_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/file-manager/folders/:folder_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/interest-categories/:interest_category_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/interest-categories/:interest_category_id/interests/:interest_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/members/:subscriber_hash"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/members/:subscriber_hash/notes/:note_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/merge-fields/:merge_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/segments/:segment_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/webhooks/:webhook_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/template-folders/:folder_id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "url": "/templates/:template_id"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/authorized-apps"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations/:workflow_id/actions/pause-all-emails"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations/:workflow_id/actions/start-all-emails"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations/:workflow_id/emails/:workflow_email_id/actions/pause"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations/:workflow_id/emails/:workflow_email_id/actions/start"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations/:workflow_id/emails/:workflow_email_id/queue"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations/:workflow_id/removed-subscribers"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/batches"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/batch-webhooks"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaign-folders"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/actions/cancel-send"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/actions/pause"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/actions/replicate"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/actions/resume"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/actions/schedule"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/actions/send"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/actions/test"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/actions/unschedule"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/feedback"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/conversations/:conversation_id/messages"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/carts"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/carts/:cart_id"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/carts/:cart_id/lines"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/customers"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/orders"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id/images"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id/variants"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/file-manager/files"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/file-manager/folders"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/interest-categories"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/interest-categories/:interest_category_id"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/interest-categories/:interest_category_id/interests"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/members"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/members/:subscriber_hash/notes"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/merge-fields"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/segments"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/segments/:segment_id"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/segments/:segment_id/members"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/signup-forms"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/webhooks"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/template-folders"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "url": "/templates"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/authorized-apps"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/authorized-apps/:app_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations/:workflow_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations/:workflow_id/emails"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations/:workflow_id/emails/:workflow_email_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations/:workflow_id/emails/:workflow_email_id/queue"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations/:workflow_id/emails/:workflow_email_id/queue/:subscriber_hash"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations/:workflow_id/removed-subscribers"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/batches"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/batches/:batch_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/batch-webhooks"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/batch-webhooks/:batch_webhook_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaign-folders"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaign-folders/:folder_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/content"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/feedback"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/feedback/:feedback_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/send-checklist"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/conversations"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/conversations/:conversation_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/conversations/:conversation_id/messages"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/conversations/:conversation_id/messages/:message_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/carts/:cart_id/lines"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/carts/:cart_id/lines/:line_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/customers"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/customers/:customer_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/orders"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/orders/:order_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/orders/:order_id/lines"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/orders/:order_id/lines/:line_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id/images"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id/images/:image_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id/variants"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/file-manager/files"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/file-manager/files/:file_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/file-manager/folders"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/file-manager/folders/:folder_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/abuse-reports"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/abuse-reports/:report_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/activity"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/clients"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/growth-history"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/growth-history/:month"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/interest-categories/:interest_category_id/interests"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/interest-categories/:interest_category_id/interests/:interest_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/locations"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/members"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/members/:subscriber_hash"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/members/:subscriber_hash/activity"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/members/:subscriber_hash/goals"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/members/:subscriber_hash/notes"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/members/:subscriber_hash/notes/:note_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/merge-fields"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/merge-fields/:merge_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/segments"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/segments/:segment_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/segments/:segment_id/members"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/signup-forms"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/webhooks"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/webhooks/:webhook_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/abuse-reports"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/abuse-reports/:report_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/advice"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/click-details"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/click-details/:link_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/click-details/:link_id/members"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/click-details/:link_id/members/:subscriber_hash"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/domain-performance"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/eepurl"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/email-activity"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/email-activity/:subscriber_hash"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/locations"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/sent-to"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/sent-to/:subscriber_hash"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/sub-reports"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/unsubscribed"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/reports/:campaign_id/unsubscribed/:subscriber_hash"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/search-campaigns"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/search-members"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/template-folders"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/template-folders/:folder_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/templates"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/templates/:template_id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "url": "/templates/:template_id/default-content"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/automations/:workflow_id/emails/:workflow_email_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/batches/:batch_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/batch-webhooks/:batch_webhook_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaign-folders/:folder_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/feedback/:feedback_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/carts/:cart_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/carts/:cart_id/lines/:line_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/customers/:customer_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/orders/:order_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/orders/:order_id/lines/:line_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id/images/:image_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/file-manager/files/:file_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/file-manager/folders/:folder_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/interest-categories/:interest_category_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/interest-categories/:interest_category_id/interests/:interest_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/members/:subscriber_hash"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/members/:subscriber_hash/notes/:note_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/merge-fields/:merge_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/segments/:segment_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/segments/:segment_id/members/:subscriber_hash"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/webhooks/:webhook_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/template-folders/:folder_id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "url": "/templates/:template_id"
+    },
+    {
+      "method": "PUT",
+      "prefix": "",
+      "suffix": "",
+      "url": "/campaigns/:campaign_id/content"
+    },
+    {
+      "method": "PUT",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/customers/:customer_id"
+    },
+    {
+      "method": "PUT",
+      "prefix": "",
+      "suffix": "",
+      "url": "/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id"
+    },
+    {
+      "method": "PUT",
+      "prefix": "",
+      "suffix": "",
+      "url": "/lists/:list_id/members/:subscriber_hash"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "label": "Get lists info",
+  "name": "listInfoMailchimp",
+  "category": "integrations",
+  "description": "Get information about all lists in the account.",
+  "inputs": [
+  ],
+  "outputs": [
+    {
+      "label": "Response",
+      "name": "response",
+      "type": "object",
+      "description": "The response to external URL"
+    }
+  ]
+}

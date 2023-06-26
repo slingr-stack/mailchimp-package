@@ -1,0 +1,92 @@
+{
+    "name": "mailchimp",
+    "label": "Mailchimp Package",
+    "dependencies": [
+        {
+            "type": "service",
+            "name": "http",
+            "version": "v1.1.5",
+            "instanceId": "shared"
+        }
+    ],
+    "configuration": [
+        {
+            "name": "apiKey",
+            "label": "API key",
+            "type": "text",
+            "description": "A valid API Key for your user account. Get by visiting your API dashboard in the MailChimp administration page.",
+            "required": true
+        },
+        {
+            "name": "webhook",
+            "label": "Webhook URL",
+            "type": "label",
+            "value": "@config.WEBHOOK_URL"
+        },
+        {
+            "name": "config",
+            "label": "Configuration",
+            "value": "You will need to configure the Webhook URL in each individual MailChimp list. Please refer to the following web site for information: <a href='http://apidocs.mailchimp.com/webhooks/#configuring-webhooks' target='_blank'>http://apidocs.mailchimp.com/webhooks/#configuring-webhooks</a>",
+            "type": "info"
+        }
+    ],
+    "events": [
+        {
+            "label": "Webhook",
+            "name": "webhook",
+            "description": "Happens when a Mailchimp hits the endpoint URL."
+        }
+    ],
+    "metadata": [
+        {
+            "type": "script",
+            "namespace": "api",
+            "path": "/scripts/functions.js"
+        },
+        {
+            "type": "listener",
+            "namespace": "webhook",
+            "path": "/listeners/listeners.js"
+        },
+        {
+            "type": "flowStep",
+            "namespace": "steps",
+            "path": "/flowSteps/apiCallMailchimp"
+        },
+        {
+            "type": "flowStep",
+            "namespace": "steps",
+            "path": "/flowSteps/listCampaignsMailchimp"
+        },
+        {
+            "type": "flowStep",
+            "namespace": "steps",
+            "path": "/flowSteps/campaignInfoMailchimp"
+        },
+        {
+            "type": "flowStep",
+            "namespace": "steps",
+            "path": "/flowSteps/addCampaignMailchimp"
+        },
+        {
+            "type": "flowStep",
+            "namespace": "steps",
+            "path": "/flowSteps/listInfoMailchimp"
+        },
+        {
+            "type": "flowStep",
+            "namespace": "steps",
+            "path": "/flowSteps/createNewListMailchimp"
+        },
+        {
+            "type": "flowStep",
+            "namespace": "steps",
+            "path": "/flowSteps/addMemberToListMailchimp"
+        },
+        {
+            "type": "flowStep",
+            "namespace": "steps",
+            "path": "/flowSteps/listMembersInfoMailchimp"
+        }
+    ]
+}
