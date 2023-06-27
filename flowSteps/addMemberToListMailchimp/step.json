@@ -1,0 +1,86 @@
+{
+  "label": "Add member to list",
+  "name": "addMemberToListMailchimp",
+  "category": "integrations",
+  "description": "Add member of a specific Mailchimp list",
+  "inputs": [
+    {
+      "label": "List Id",
+      "name": "listId",
+      "description": "The unique list id.",
+      "type": "text",
+      "required": "true",
+      "options": {
+        "allowContextSelector": "true"
+      }
+    },
+    {
+      "label": "Email Address",
+      "name": "emailAddress",
+      "description": "Email address for a subscriber.",
+      "type": "text",
+      "required": "true",
+      "options": {
+        "validation": "email",
+        "allowContextSelector": "true"
+      }
+    },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "dropDown",
+      "description": "Subscriber's current status.",
+      "required": "true",
+      "typeOptions": {
+        "possibleValues": [
+          {
+            "label": "Subscribed",
+            "name": "subscribed"
+          },
+          {
+            "label": "Unsubscribed",
+            "name": "unsubscribed"
+          },
+          {
+            "label": "Cleaned",
+            "name": "cleaned"
+          },
+          {
+            "label": "Pending",
+            "name": "pending"
+          },
+          {
+            "label": "Transactional",
+            "name": "transactional"
+          }
+        ]
+      }
+    },
+    {
+      "label": "First Name",
+      "name": "firstName",
+      "type": "text",
+      "required": "true",
+      "options": {
+        "allowContextSelector": "true"
+      }
+    },
+    {
+      "label": "Last Name",
+      "name": "lastName",
+      "type": "text",
+      "required": "true",
+      "options": {
+        "allowContextSelector": "true"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "label": "Response",
+      "name": "response",
+      "type": "object",
+      "description": "The response to external URL"
+    }
+  ]
+}

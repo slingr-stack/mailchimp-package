@@ -1,0 +1,17 @@
+{
+  "label": "List campaigns",
+  "name": "listCampaignsMailchimp",
+  "category": "integrations",
+  "description": "Get all campaigns in an account.",
+  "inputs": [
+
+  ],
+  "outputs": [
+    {
+      "label": "Response",
+      "name": "response",
+      "type": "object",
+      "description": "The response to external URL"
+    }
+  ]
+}

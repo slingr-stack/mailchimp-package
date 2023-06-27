@@ -1,0 +1,736 @@
+{
+  "label": "API call to mailchimp",
+  "name": "apiCallMailchimp",
+  "category": "integrations",
+  "description": "This flow step will send generic request to mailchimp",
+  "inputs": [
+    {
+      "label": "Url",
+      "name": "url",
+      "description": "The method and path to which this endpoint is to send requests in a generic way.",
+      "type": "urlParams",
+      "required": "true",
+      "options": {
+        "type": "dropDown",
+        "possibleValues": [
+            {
+              "label": "PATCH /batch-webhooks/{batch_webhook_id}"
+            },
+            {
+              "label": "PATCH /campaign-folders/{folder_id}"
+            },
+            {
+              "label": "PATCH /campaigns/{campaign_id}"
+            },
+            {
+              "label": "PATCH /campaigns/{campaign_id}/feedback/{feedback_id}"
+            },
+            {
+              "label": "PATCH /ecommerce/stores/{store_id}"
+            },
+            {
+              "label": "PATCH /ecommerce/stores/{store_id}/carts/{cart_id}"
+            },
+            {
+              "label": "PATCH /ecommerce/stores/{store_id}/carts/{cart_id}/lines/{line_id}"
+            },
+            {
+              "label": "PATCH /ecommerce/stores/{store_id}/customers/{customer_id}"
+            },
+            {
+              "label": "PATCH /ecommerce/stores/{store_id}/orders/{order_id}"
+            },
+            {
+              "label": "PATCH /ecommerce/stores/{store_id}/orders/{order_id}/lines/{line_id}"
+            },
+            {
+              "label": "PATCH /ecommerce/stores/{store_id}/products/{product_id}"
+            },
+            {
+              "label": "PATCH /ecommerce/stores/{store_id}/products/{product_id}/images/{image_id}"
+            },
+            {
+              "label": "PATCH /ecommerce/stores/{store_id}/products/{product_id}/variants/{variant_id}"
+            },
+            {
+              "label": "PATCH /file-manager/files/{file_id}"
+            },
+            {
+              "label": "PATCH /file-manager/folders/{folder_id}"
+            },
+            {
+              "label": "PATCH /lists/{list_id}"
+            },
+            {
+              "label": "PATCH /lists/{list_id}/interest-categories/{interest_category_id}"
+            },
+            {
+              "label": "PATCH /lists/{list_id}/interest-categories/{interest_category_id}/interests/{interest_id}"
+            },
+            {
+              "label": "PATCH /lists/{list_id}/members/{subscriber_hash}"
+            },
+            {
+              "label": "PATCH /lists/{list_id}/members/{subscriber_hash}/notes/{note_id}"
+            },
+            {
+              "label": "PATCH /lists/{list_id}/merge-fields/{merge_id}"
+            },
+            {
+              "label": "PATCH /lists/{list_id}/segments/{segment_id}"
+            },
+            {
+              "label": "PATCH /lists/{list_id}/webhooks/{webhook_id}"
+            },
+            {
+              "label": "PATCH /template-folders/{folder_id}"
+            },
+            {
+              "label": "PATCH /templates/{template_id}"
+            },
+            {
+              "label": "POST /authorized-apps"
+            },
+            {
+              "label": "POST /automations/{workflow_id}/actions/pause-all-emails"
+            },
+            {
+              "label": "POST /automations/{workflow_id}/actions/start-all-emails"
+            },
+            {
+              "label": "POST /automations/{workflow_id}/emails/{workflow_email_id}/actions/pause"
+            },
+            {
+              "label": "POST /automations/{workflow_id}/emails/{workflow_email_id}/actions/start"
+            },
+            {
+              "label": "POST /automations/{workflow_id}/emails/{workflow_email_id}/queue"
+            },
+            {
+              "label": "POST /automations/{workflow_id}/removed-subscribers"
+            },
+            {
+              "label": "POST /batches"
+            },
+            {
+              "label": "POST /batch-webhooks"
+            },
+            {
+              "label": "POST /campaign-folders"
+            },
+            {
+              "label": "POST /campaigns"
+            },
+            {
+              "label": "POST /campaigns/{campaign_id}/actions/cancel-send"
+            },
+            {
+              "label": "POST /campaigns/{campaign_id}/actions/pause"
+            },
+            {
+              "label": "POST /campaigns/{campaign_id}/actions/replicate"
+            },
+            {
+              "label": "POST /campaigns/{campaign_id}/actions/resume"
+            },
+            {
+              "label": "POST /campaigns/{campaign_id}/actions/schedule"
+            },
+            {
+              "label": "POST /campaigns/{campaign_id}/actions/send"
+            },
+            {
+              "label": "POST /campaigns/{campaign_id}/actions/test"
+            },
+            {
+              "label": "POST /campaigns/{campaign_id}/actions/unschedule"
+            },
+            {
+              "label": "POST /campaigns/{campaign_id}/feedback"
+            },
+            {
+              "label": "POST /conversations/{conversation_id}/messages"
+            },
+            {
+              "label": "POST /ecommerce/stores"
+            },
+            {
+              "label": "POST /ecommerce/stores/{store_id}/carts"
+            },
+            {
+              "label": "POST /ecommerce/stores/{store_id}/carts/{cart_id}"
+            },
+            {
+              "label": "POST /ecommerce/stores/{store_id}/carts/{cart_id}/lines"
+            },
+            {
+              "label": "POST /ecommerce/stores/{store_id}/customers"
+            },
+            {
+              "label": "POST /ecommerce/stores/{store_id}/orders"
+            },
+            {
+              "label": "POST /ecommerce/stores/{store_id}/products"
+            },
+            {
+              "label": "POST /ecommerce/stores/{store_id}/products/{product_id}/images"
+            },
+            {
+              "label": "POST /ecommerce/stores/{store_id}/products/{product_id}/variants"
+            },
+            {
+              "label": "POST /file-manager/files"
+            },
+            {
+              "label": "POST /file-manager/folders"
+            },
+            {
+              "label": "POST /lists"
+            },
+            {
+              "label": "POST /lists/{list_id}"
+            },
+            {
+              "label": "POST /lists/{list_id}/interest-categories"
+            },
+            {
+              "label": "POST /lists/{list_id}/interest-categories/{interest_category_id}"
+            },
+            {
+              "label": "POST /lists/{list_id}/interest-categories/{interest_category_id}/interests"
+            },
+            {
+              "label": "POST /lists/{list_id}/members"
+            },
+            {
+              "label": "POST /lists/{list_id}/members/{subscriber_hash}/notes"
+            },
+            {
+              "label": "POST /lists/{list_id}/merge-fields"
+            },
+            {
+              "label": "POST /lists/{list_id}/segments"
+            },
+            {
+              "label": "POST /lists/{list_id}/segments/{segment_id}"
+            },
+            {
+              "label": "POST /lists/{list_id}/segments/{segment_id}/members"
+            },
+            {
+              "label": "POST /lists/{list_id}/signup-forms"
+            },
+            {
+              "label": "POST /lists/{list_id}/webhooks"
+            },
+            {
+              "label": "POST /template-folders"
+            },
+            {
+              "label": "POST /templates"
+            },
+            {
+              "label": "GET /authorized-apps"
+            },
+            {
+              "label": "GET /authorized-apps/{app_id}"
+            },
+            {
+              "label": "GET /automations"
+            },
+            {
+              "label": "GET /automations/{workflow_id}"
+            },
+            {
+              "label": "GET /automations/{workflow_id}/emails"
+            },
+            {
+              "label": "GET /automations/{workflow_id}/emails/{workflow_email_id}"
+            },
+            {
+              "label": "GET /automations/{workflow_id}/emails/{workflow_email_id}/queue"
+            },
+            {
+              "label": "GET /automations/{workflow_id}/emails/{workflow_email_id}/queue/{subscriber_hash}"
+            },
+            {
+              "label": "GET /automations/{workflow_id}/removed-subscribers"
+            },
+            {
+              "label": "GET /batches"
+            },
+            {
+              "label": "GET /batches/{batch_id}"
+            },
+            {
+              "label": "GET /batch-webhooks"
+            },
+            {
+              "label": "GET /batch-webhooks/{batch_webhook_id}"
+            },
+            {
+              "label": "GET /campaign-folders"
+            },
+            {
+              "label": "GET /campaign-folders/{folder_id}"
+            },
+            {
+              "label": "GET /campaigns"
+            },
+            {
+              "label": "GET /campaigns/{campaign_id}"
+            },
+            {
+              "label": "GET /campaigns/{campaign_id}/content"
+            },
+            {
+              "label": "GET /campaigns/{campaign_id}/feedback"
+            },
+            {
+              "label": "GET /campaigns/{campaign_id}/feedback/{feedback_id}"
+            },
+            {
+              "label": "GET /campaigns/{campaign_id}/send-checklist"
+            },
+            {
+              "label": "GET /conversations"
+            },
+            {
+              "label": "GET /conversations/{conversation_id}"
+            },
+            {
+              "label": "GET /conversations/{conversation_id}/messages"
+            },
+            {
+              "label": "GET /conversations/{conversation_id}/messages/{message_id}"
+            },
+            {
+              "label": "GET /ecommerce/stores"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/carts/{cart_id}/lines"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/carts/{cart_id}/lines/{line_id}"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/customers"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/customers/{customer_id}"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/orders"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/orders/{order_id}"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/orders/{order_id}/lines"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/orders/{order_id}/lines/{line_id}"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/products"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/products/{product_id}"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/products/{product_id}/images"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/products/{product_id}/images/{image_id}"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/products/{product_id}/variants"
+            },
+            {
+              "label": "GET /ecommerce/stores/{store_id}/products/{product_id}/variants/{variant_id}"
+            },
+            {
+              "label": "GET /file-manager/files"
+            },
+            {
+              "label": "GET /file-manager/files/{file_id}"
+            },
+            {
+              "label": "GET /file-manager/folders"
+            },
+            {
+              "label": "GET /file-manager/folders/{folder_id}"
+            },
+            {
+              "label": "GET /lists"
+            },
+            {
+              "label": "GET /lists/{list_id}"
+            },
+            {
+              "label": "GET /lists/{list_id}/abuse-reports"
+            },
+            {
+              "label": "GET /lists/{list_id}/abuse-reports/{report_id}"
+            },
+            {
+              "label": "GET /lists/{list_id}/activity"
+            },
+            {
+              "label": "GET /lists/{list_id}/clients"
+            },
+            {
+              "label": "GET /lists/{list_id}/growth-history"
+            },
+            {
+              "label": "GET /lists/{list_id}/growth-history/{month}"
+            },
+            {
+              "label": "GET /lists/{list_id}/interest-categories/{interest_category_id}/interests"
+            },
+            {
+              "label": "GET /lists/{list_id}/interest-categories/{interest_category_id}/interests/{interest_id}"
+            },
+            {
+              "label": "GET /lists/{list_id}/locations"
+            },
+            {
+              "label": "GET /lists/{list_id}/members"
+            },
+            {
+              "label": "GET /lists/{list_id}/members/{subscriber_hash}"
+            },
+            {
+              "label": "GET /lists/{list_id}/members/{subscriber_hash}/activity"
+            },
+            {
+              "label": "GET /lists/{list_id}/members/{subscriber_hash}/goals"
+            },
+            {
+              "label": "GET /lists/{list_id}/members/{subscriber_hash}/notes"
+            },
+            {
+              "label": "GET /lists/{list_id}/members/{subscriber_hash}/notes/{note_id}"
+            },
+            {
+              "label": "GET /lists/{list_id}/merge-fields"
+            },
+            {
+              "label": "GET /lists/{list_id}/merge-fields/{merge_id}"
+            },
+            {
+              "label": "GET /lists/{list_id}/segments"
+            },
+            {
+              "label": "GET /lists/{list_id}/segments/{segment_id}"
+            },
+            {
+              "label": "GET /lists/{list_id}/segments/{segment_id}/members"
+            },
+            {
+              "label": "GET /lists/{list_id}/signup-forms"
+            },
+            {
+              "label": "GET /lists/{list_id}/webhooks"
+            },
+            {
+              "label": "GET /lists/{list_id}/webhooks/{webhook_id}"
+            },
+            {
+              "label": "GET /reports"
+            },
+            {
+              "label": "GET /reports/{campaign_id}"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/abuse-reports"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/abuse-reports/{report_id}"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/advice"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/click-details"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/click-details/{link_id}"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/click-details/{link_id}/members"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/click-details/{link_id}/members/{subscriber_hash}"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/domain-performance"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/eepurl"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/email-activity"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/email-activity/{subscriber_hash}"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/locations"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/sent-to"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/sent-to/{subscriber_hash}"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/sub-reports"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/unsubscribed"
+            },
+            {
+              "label": "GET /reports/{campaign_id}/unsubscribed/{subscriber_hash}"
+            },
+            {
+              "label": "GET /search-campaigns"
+            },
+            {
+              "label": "GET /search-members"
+            },
+            {
+              "label": "GET /template-folders"
+            },
+            {
+              "label": "GET /template-folders/{folder_id}"
+            },
+            {
+              "label": "GET /templates"
+            },
+            {
+              "label": "GET /templates/{template_id}"
+            },
+            {
+              "label": "GET /templates/{template_id}/default-content"
+            },
+            {
+              "label": "DELETE /automations/{workflow_id}/emails/{workflow_email_id}"
+            },
+            {
+              "label": "DELETE /batches/{batch_id}"
+            },
+            {
+              "label": "DELETE /batch-webhooks/{batch_webhook_id}"
+            },
+            {
+              "label": "DELETE /campaign-folders/{folder_id}"
+            },
+            {
+              "label": "DELETE /campaigns/{campaign_id}"
+            },
+            {
+              "label": "DELETE /campaigns/{campaign_id}/feedback/{feedback_id}"
+            },
+            {
+              "label": "DELETE /ecommerce/stores/{store_id}"
+            },
+            {
+              "label": "DELETE /ecommerce/stores/{store_id}/carts/{cart_id}"
+            },
+            {
+              "label": "DELETE /ecommerce/stores/{store_id}/carts/{cart_id}/lines/{line_id}"
+            },
+            {
+              "label": "DELETE /ecommerce/stores/{store_id}/customers/{customer_id}"
+            },
+            {
+              "label": "DELETE /ecommerce/stores/{store_id}/orders/{order_id}"
+            },
+            {
+              "label": "DELETE /ecommerce/stores/{store_id}/orders/{order_id}/lines/{line_id}"
+            },
+            {
+              "label": "DELETE /ecommerce/stores/{store_id}/products/{product_id}"
+            },
+            {
+              "label": "DELETE /ecommerce/stores/{store_id}/products/{product_id}/images/{image_id}"
+            },
+            {
+              "label": "DELETE /ecommerce/stores/{store_id}/products/{product_id}/variants/{variant_id}"
+            },
+            {
+              "label": "DELETE /file-manager/files/{file_id}"
+            },
+            {
+              "label": "DELETE /file-manager/folders/{folder_id}"
+            },
+            {
+              "label": "DELETE /lists/{list_id}"
+            },
+            {
+              "label": "DELETE /lists/{list_id}/interest-categories/{interest_category_id}"
+            },
+            {
+              "label": "DELETE /lists/{list_id}/interest-categories/{interest_category_id}/interests/{interest_id}"
+            },
+            {
+              "label": "DELETE /lists/{list_id}/members/{subscriber_hash}"
+            },
+            {
+              "label": "DELETE /lists/{list_id}/members/{subscriber_hash}/notes/{note_id}"
+            },
+            {
+              "label": "DELETE /lists/{list_id}/merge-fields/{merge_id}"
+            },
+            {
+              "label": "DELETE /lists/{list_id}/segments/{segment_id}"
+            },
+            {
+              "label": "DELETE /lists/{list_id}/segments/{segment_id}/members/{subscriber_hash}"
+            },
+            {
+              "label": "DELETE /lists/{list_id}/webhooks/{webhook_id}"
+            },
+            {
+              "label": "DELETE /template-folders/{folder_id}"
+            },
+            {
+              "label": "DELETE /templates/{template_id}"
+            },
+            {
+              "label": "PUT /campaigns/{campaign_id}/content"
+            },
+            {
+              "label": "PUT /ecommerce/stores/{store_id}/customers/{customer_id}"
+            },
+            {
+              "label": "PUT /ecommerce/stores/{store_id}/products/{product_id}/variants/{variant_id}"
+            },
+            {
+              "label": "PUT /lists/{list_id}/members/{subscriber_hash}"
+            }
+        ]
+      }
+    },
+    {
+      "label": "Headers",
+      "name": "headers",
+      "description": "Let the client and the server pass additional information with the HTTP request in a key value format. (e.g. key=ABC123)",
+      "type": "keyValue"
+    },
+    {
+      "label": "Query Params",
+      "name": "params",
+      "description": "Parameters attached to the end of a url in a key value format. (e.g. key=ABC123)",
+      "type": "keyValue"
+    },
+    {
+      "label": "Body",
+      "name": "body",
+      "type": "json",
+      "description": "Content to be sent to the server.",
+      "options": {
+        "allowContextSelector": "true"
+      }
+    },
+    {
+      "label": "Override Settings",
+      "name": "overrideSettings",
+      "type": "boolean",
+      "description": "If true, allows adding configurations",
+      "defaultValue": false,
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "Follow Redirects",
+      "name": "followRedirects",
+      "type": "boolean",
+      "description": "Follow the redirects when a HTTP request is executed",
+      "visibility": "config.overrideSettings",
+      "defaultValue": false,
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "Download",
+      "name": "download",
+      "type": "boolean",
+      "description": "Indicates that the resource has to be downloaded into a file instead of returning it in the response.",
+      "visibility": "config.overrideSettings && config.events != \"fileDownloaded\"",
+      "defaultValue": false,
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "File Name",
+      "name": "fileName",
+      "description": "If provided, the file will be stored with this name. If empty the file name will be calculated from the URL.",
+      "visibility": "(config.overrideSettings && config.download) || config.events === \"fileDownloaded\"",
+      "type": "text",
+      "options": {
+        "allowContextSelector": "true"
+      }
+    },
+    {
+      "label": "Full Response",
+      "name": "fullResponse",
+      "type": "boolean",
+      "description": "Include extended information about response",
+      "visibility": "config.overrideSettings",
+      "defaultValue": false,
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "Connection timeout",
+      "name": "connectionTimeout",
+      "description": "Connect timeout interval, in milliseconds (0 = infinity). Default value: 5000 ms (5 sec)",
+      "visibility": "config.overrideSettings",
+      "type": "text",
+      "defaultValue": "5000",
+      "typeOptions": {
+        "validation": {
+          "function": "!config.connectionTimeout || utils.isPlaceholder(config.connectionTimeout) || utils.getInteger(config.connectionTimeout) >= 0",
+          "message": "The time must be a valid placeholder or a positive integer greater than or equal to 0. "
+        }
+      },
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "Read timeout",
+      "name": "readTimeout",
+      "description": "Read timeout interval, in milliseconds (0 = infinity). Default value: 60000 ms (60 sec)",
+      "visibility": "config.overrideSettings",
+      "type": "text",
+      "defaultValue": "60000",
+      "typeOptions": {
+        "validation": {
+          "function": "!config.readTimeout || utils.isPlaceholder(config.readTimeout) || utils.getInteger(config.readTimeout) >= 0",
+          "message": "The time must be a valid placeholder or a positive integer greater than or equal to 0. "
+        }
+      },
+      "options": {
+        "allowContextSelector": "false"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "label": "Response",
+      "name": "response",
+      "type": "object",
+      "description": "The response to external URL"
+    }
+  ]
+}
