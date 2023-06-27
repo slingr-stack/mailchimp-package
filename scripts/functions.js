@@ -2593,8 +2593,6 @@ exports.utils.fromMillisToDate = function(params) {
  Private helpers
  ****************************************************/
 
-var apikey = config.get("apiKey");
-
 var concatQuery = function (url, key, value) {
     return url + ((!url || url.indexOf('?') < 0) ? '?' : '&') + key + "=" + value;
 }
@@ -2651,6 +2649,8 @@ var parse = function (str) {
  Constants
  ****************************************************/
 
+
+var apikey = config.get("apiKey");
 var server = apiKey.substring(apiKey.lastIndexOf('-') + 1);
 var MAILCHIMP_SERVER = server == null || server.trim() === '' ? 'us1' : server.trim();
 var API_URL = "https://" + MAILCHIMP_SERVER + ".api.mailchimp.com/3.0/";
@@ -2678,16 +2678,7 @@ function setApiUri(options) {
 }
 
 function setRequestHeaders(options) {
-    var headers = options.headers || {};
-    if (config.get("authenticationMethod") === "apiKey") {
-        sys.logs.debug('[mailchimp] Set header apikey');
-        headers = mergeJSON(headers, {"Authorization": "API-Key " + config.get("apiKey")});
-    }
-    headers = mergeJSON(headers, {"Content-Type": "application/json"});
-    headers.defaultAuth = "BASIC";
-    headers.authUsername = "anyUser";
-    headers.authPassword = apikey;
-    options.headers = headers;
+    options.headers = mergeJSON(headers, {"Authorization": "Basic " + btoa("anyUser") + btoa(apikey)});
     return options;
 }
 

@@ -4,6 +4,6 @@ step.listCampaignsMailchimp = function (inputs) {
 		path: "/campaigns"
 	}
 
-	return endpoint._get(options);
+	return pkg.mailchimp.get(options);
 
 }

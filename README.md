@@ -1,10 +1,19 @@
----
-title: MailChimp package
-keywords: 
-last_updated: April 27, 2023
-tags: []
-summary: "Detailed description of the API of the MailChimp package."
----
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Last Updated</th>
+        <th>Summary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>MailChimp package</td>
+        <td>June 27, 2023</td>
+        <td>Detailed description of the API of the MailChimp package.</td>
+    </tr>
+    </tbody>
+</table>
 
 ## Overview
 
@@ -245,6 +254,8 @@ You will get this:
     }
 }
 ```
+## Dependencies
+* http service
 
 ## About SLINGR
 

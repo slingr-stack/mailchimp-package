@@ -12,6 +12,6 @@ step.addCampaignMailchimp = function (inputs) {
         body: inputsLogic
     }
 
-    return endpoint._post(options);
+    return pkg.mailchimp.post(options);
 
 }
