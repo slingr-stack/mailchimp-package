@@ -2541,6 +2541,11 @@ exports.options = function(url, httpOptions, callbackData, callbacks) {
 
 exports.utils = {};
 
+exports.utils.getConfiguration = function (property) {
+    sys.logs.debug('[pandadoc] Get property: '+property);
+    return config.get(property);
+};
+
 exports.utils.parseTimestamp = function(dateString) {
     if (!dateString) {
         return null;
@@ -2653,7 +2658,7 @@ var parse = function (str) {
 var apikey = config.get("apiKey");
 var server = apiKey.substring(apiKey.lastIndexOf('-') + 1);
 var MAILCHIMP_SERVER = server == null || server.trim() === '' ? 'us1' : server.trim();
-var API_URL = "https://" + MAILCHIMP_SERVER + ".api.mailchimp.com/3.0/";
+var MAILCHIMP_API_URL = "https://" + MAILCHIMP_SERVER + ".api.mailchimp.com/3.0/";
 
 /****************************************************
  Configurator
@@ -2672,12 +2677,13 @@ var Mailchimp = function (options) {
 
 function setApiUri(options) {
     var url = options.path || "";
-    options.url = API_URL + url;
+    options.url = MAILCHIMP_API_URL + url;
     sys.logs.debug('[mailchimp] Set url: ' + options.path + "->" + options.url);
     return options;
 }
 
 function setRequestHeaders(options) {
+    var headers = options.headers || {};
     options.headers = mergeJSON(headers, {"Authorization": "Basic " + btoa("anyUser") + btoa(apikey)});
     return options;
 }
