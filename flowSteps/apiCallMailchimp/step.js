@@ -54,23 +54,23 @@ step.apiCall = function (inputs) {
 
 	switch (inputsLogic.method.toLowerCase()) {
 		case 'get':
-			return pkg.mailchimp.get(options);
+			return pkg.mailchimp.functions.get(options);
 		case 'post':
-			return pkg.mailchimp.post(options);
+			return pkg.mailchimp.functions.post(options);
 		case 'delete':
-			return pkg.mailchimp.delete(options);
+			return pkg.mailchimp.functions.delete(options);
 		case 'put':
-			return pkg.mailchimp.put(options);
+			return pkg.mailchimp.functions.put(options);
 		case 'connect':
-			return pkg.mailchimp.connect(options);
+			return pkg.mailchimp.functions.connect(options);
 		case 'head':
-			return pkg.mailchimp.head(options);
+			return pkg.mailchimp.functions.head(options);
 		case 'options':
-			return pkg.mailchimp.options(options);
+			return pkg.mailchimp.functions.options(options);
 		case 'patch':
-			return pkg.mailchimp.patch(options);
+			return pkg.mailchimp.functions.patch(options);
 		case 'trace':
-			return pkg.mailchimp.trace(options);
+			return pkg.mailchimp.functions.trace(options);
 	}
 
 	//REPLACE THIS WITH YOUR OWN CODE

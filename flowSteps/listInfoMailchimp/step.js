@@ -4,6 +4,6 @@ step.listInfoMailchimp = function (inputs) {
 		path: "/lists"
 	}
 
-	return pkg.mailchimp.get(options);
+	return pkg.mailchimp.functions.get(options);
 
 }

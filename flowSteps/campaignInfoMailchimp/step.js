@@ -8,6 +8,6 @@ step.campaignInfoMailchimp = function (inputs) {
 		path: "/campaigns/" + inputsLogic.campaignId
 	}
 
-	return pkg.mailchimp.get(options);
+	return pkg.mailchimp.functions.get(options);
 
 }

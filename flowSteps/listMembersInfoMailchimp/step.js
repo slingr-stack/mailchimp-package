@@ -8,6 +8,6 @@ step.listMembersInfoMailchimp = function (inputs) {
 		path: "/lists/" + inputsLogic.listId + "/members"
 	}
 
-	return pkg.mailchimp.get(options);
+	return pkg.mailchimp.functions.get(options);
 
 }

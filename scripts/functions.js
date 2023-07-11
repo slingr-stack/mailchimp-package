@@ -2,7 +2,7 @@
  Dependencies
  ****************************************************/
 
-var httpReference = svc.http;
+var httpReference = dependencies.http;
 
 var httpDependency = {
     get: httpReference.get,
@@ -2644,10 +2644,6 @@ exports.utils.verifySignature = function (body, signature) {
  Private helpers
  ****************************************************/
 
-var concatQuery = function (url, key, value) {
-    return url + ((!url || url.indexOf('?') < 0) ? '?' : '&') + key + "=" + value;
-}
-
 var checkHttpOptions = function (url, options) {
     options = options || {};
     if (!!url) {
@@ -2656,7 +2652,7 @@ var checkHttpOptions = function (url, options) {
             options = url || {};
         } else {
             if (!!options.path || !!options.params || !!options.body) {
-                // options contains the http package format
+                // options contain the http package format
                 options.path = url;
             } else {
                 // create html package
