@@ -2,7 +2,37 @@
  Dependencies
  ****************************************************/
 
-var httpService = svc.http;
+var httpReference = svc.http;
+
+var httpDependency = {
+    get: httpReference.get,
+    post: httpReference.post,
+    put: httpReference.put,
+    patch: httpReference.patch,
+    delete: httpReference.delete,
+    head: httpReference.head,
+    options: httpReference.options
+};
+var httpService = {};
+
+function handleRequestWithRetry(requestFn, options, callbackData, callbacks) {
+    try {
+        return requestFn(options, callbackData, callbacks);
+    } catch (error) {
+        sys.logs.error(JSON.stringify(error));
+        sys.logs.info("[mailchimp] Handling request...");
+    }
+}
+
+function createWrapperFunction(requestFn) {
+    return function(options, callbackData, callbacks) {
+        return handleRequestWithRetry(requestFn, options, callbackData, callbacks);
+    };
+}
+
+for (var key in httpDependency) {
+    if (typeof httpDependency[key] === 'function') httpService[key] = createWrapperFunction(httpDependency[key]);
+}
 
 /****************************************************
  Helpers
@@ -2594,6 +2624,22 @@ exports.utils.fromMillisToDate = function(params) {
     return null;
 };
 
+exports.utils.getConfiguration = function (property) {
+    sys.logs.debug('[mailchimp] Get property: '+property);
+    return config.get(property);
+};
+
+exports.utils.verifySignature = function (body, signature) {
+    sys.logs.info("Checking signature");
+    var secret = config.get("webhookSecret");
+    if (!secret || secret === "" ||
+        !sys.utils.crypto.verifySignatureWithHmac(body, signature.replace("sha1=",""), secret, "HmacSHA256")) {
+        sys.logs.error("Invalid signature or body");
+        return false;
+    }
+    return true;
+};
+
 /****************************************************
  Private helpers
  ****************************************************/
@@ -2655,7 +2701,7 @@ var parse = function (str) {
  ****************************************************/
 
 
-var apikey = config.get("apiKey");
+var apiKey = config.get("apiKey");
 var server = apiKey.substring(apiKey.lastIndexOf('-') + 1);
 var MAILCHIMP_SERVER = server == null || server.trim() === '' ? 'us1' : server.trim();
 var MAILCHIMP_API_URL = "https://" + MAILCHIMP_SERVER + ".api.mailchimp.com/3.0/";
@@ -2683,8 +2729,14 @@ function setApiUri(options) {
 }
 
 function setRequestHeaders(options) {
-    var headers = options.headers || {};
-    options.headers = mergeJSON(headers, {"Authorization": "Basic " + btoa("anyUser") + btoa(apikey)});
+    sys.logs.debug('[mailchimp] Setting header basic oauth');
+    var authorization = options.authorization || {};
+    authorization = mergeJSON(authorization, {
+        type: "basic",
+        username: "anyUser",
+        password: apiKey
+    });
+    options.authorization = authorization;
     return options;
 }
 
