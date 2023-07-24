@@ -1,3 +1,9 @@
+/****************************************************
+ Dependencies
+ ****************************************************/
+
+var httpService = dependencies.http;
+
 step.addMemberToListMailchimp = function (inputs) {
 
     var inputsLogic = {
@@ -12,10 +18,10 @@ step.addMemberToListMailchimp = function (inputs) {
 
 
     var options = {
-        path: "/lists/"+inputsLogic.listId+"/members",
+        url: config.get("url") + "/lists/"+inputsLogic.listId+"/members",
         body: inputsLogic
     }
 
-    return pkg.mailchimp.functions.post(options);
+    return httpService.post(options);
 
 }

@@ -2,7 +2,7 @@
  Dependencies
  ****************************************************/
 
-var httpReference = svc[config.http];
+var httpReference = dependencies.http;
 
 var httpDependency = {
     get: httpReference.get,
@@ -2696,6 +2696,8 @@ var parse = function (str) {
  Constants
  ****************************************************/
 
+var MANDRILL_API_BASE_URL = config.get("url"); // TODO: Set the base url
+var API_URL = MANDRILL_API_BASE_URL+""; // TODO: Set the base url for the api
 
 var apiKey = config.get("apiKey");
 var server = apiKey.substring(apiKey.lastIndexOf('-') + 1);

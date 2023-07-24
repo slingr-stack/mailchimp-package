@@ -1,9 +1,15 @@
+/****************************************************
+ Dependencies
+ ****************************************************/
+
+var httpService = dependencies.http;
+
 step.listInfoMailchimp = function (inputs) {
 
 	var options = {
-		path: "/lists"
+		url: config.get("url") + "/lists"
 	}
 
-	return pkg.mailchimp.functions.get(options);
+	return httpService.get(options);
 
 }

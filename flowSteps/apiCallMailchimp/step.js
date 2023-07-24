@@ -1,20 +1,11 @@
-/**
- * This flow step will send generic request.
- *
- * @param {object} inputs
- * {text} method, This is used to config method.
- * {text} url, This is used to config external URL.
- * {Array[string]} pathVariables, This is used to config path variables.
- * {Array[string]} headers, This is used to config headers.
- * {Array[string]} params, This is used to config params.
- * {string} body, This is used to send body request.
- * {boolean} followRedirects, This is used to config follow redirects.
- * {boolean} download, This is used to config download.
- * {boolean} fullResponse, This is used to config full response.
- * {number} connectionTimeout, Read timeout interval, in milliseconds.
- * {number} readTimeout, Connect timeout interval, in milliseconds.
- */
-step.apiCall = function (inputs) {
+/****************************************************
+ Dependencies
+ ****************************************************/
+
+var httpService = dependencies.http;
+
+
+step.apiCallMailchimp = function (inputs) {
 
 	var inputsLogic = {
 		headers: inputs.headers || [],
@@ -39,7 +30,7 @@ step.apiCall = function (inputs) {
 
 
 	var options = {
-		path: parse(inputsLogic.url.urlValue, inputsLogic.url.paramsValue),
+		path: config.get("url") + parse(inputsLogic.url.urlValue, inputsLogic.url.paramsValue),
 		params: inputsLogic.params,
 		headers: inputsLogic.headers,
 		body: inputsLogic.body,
@@ -54,23 +45,23 @@ step.apiCall = function (inputs) {
 
 	switch (inputsLogic.method.toLowerCase()) {
 		case 'get':
-			return pkg.mailchimp.functions.get(options);
+			return httpService.get(options);
 		case 'post':
-			return pkg.mailchimp.functions.post(options);
+			return httpService.post(options);
 		case 'delete':
-			return pkg.mailchimp.functions.delete(options);
+			return httpService.delete(options);
 		case 'put':
-			return pkg.mailchimp.functions.put(options);
+			return httpService.put(options);
 		case 'connect':
-			return pkg.mailchimp.functions.connect(options);
+			return httpService.connect(options);
 		case 'head':
-			return pkg.mailchimp.functions.head(options);
+			return httpService.head(options);
 		case 'options':
-			return pkg.mailchimp.functions.options(options);
+			return httpService.options(options);
 		case 'patch':
-			return pkg.mailchimp.functions.patch(options);
+			return httpService.patch(options);
 		case 'trace':
-			return pkg.mailchimp.functions.trace(options);
+			return httpService.trace(options);
 	}
 
 	//REPLACE THIS WITH YOUR OWN CODE

@@ -28,6 +28,13 @@
 			"label": "Configuration",
 			"value": "You will need to configure the Webhook URL in each individual MailChimp list. Please refer to the following web site for information: <a href='http://apidocs.mailchimp.com/webhooks/#configuring-webhooks' target='_blank'>http://apidocs.mailchimp.com/webhooks/#configuring-webhooks</a>",
 			"type": "info"
+		},
+		{
+			"name": "url",
+			"label": "Url",
+			"type": "label",
+			"value": "",
+			"visibility":true
 		}
 	],
 	"events": [
