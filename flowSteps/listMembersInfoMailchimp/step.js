@@ -11,7 +11,7 @@ step.listMembersInfoMailchimp = function (inputs) {
 	};
 
 	var options = {
-		url: config.get("url") + "/lists/" + inputsLogic.listId + "/members"
+		url: config.get("mailChimpApiUrl") + "/lists/" + inputsLogic.listId + "/members"
 	}
 
 	return httpService.get(options);

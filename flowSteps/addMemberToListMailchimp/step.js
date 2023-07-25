@@ -18,7 +18,7 @@ step.addMemberToListMailchimp = function (inputs) {
 
 
     var options = {
-        url: config.get("url") + "/lists/"+inputsLogic.listId+"/members",
+        url: config.get("mailChimpApiUrl") + "/lists/"+inputsLogic.listId+"/members",
         body: inputsLogic
     }
 

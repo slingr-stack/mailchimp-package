@@ -14,7 +14,7 @@ step.addCampaignMailchimp = function (inputs) {
     };
 
     var options = {
-        url: config.get("url") + "/campaigns",
+        url: config.get("mailChimpApiUrl") + "/campaigns",
         body: inputsLogic
     }
 

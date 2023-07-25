@@ -35,7 +35,7 @@ step.createNewListMailchimp = function (inputs) {
     };
 
     var options = {
-        url: config.get("url") + "/lists",
+        url: config.get("mailChimpApiUrl") + "/lists",
         body: inputsLogic
     }
 

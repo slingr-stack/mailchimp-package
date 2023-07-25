@@ -30,7 +30,7 @@ step.apiCallMailchimp = function (inputs) {
 
 
 	var options = {
-		path: config.get("url") + parse(inputsLogic.url.urlValue, inputsLogic.url.paramsValue),
+		path: config.get("mailChimpApiUrl") + parse(inputsLogic.url.urlValue, inputsLogic.url.paramsValue),
 		params: inputsLogic.params,
 		headers: inputsLogic.headers,
 		body: inputsLogic.body,

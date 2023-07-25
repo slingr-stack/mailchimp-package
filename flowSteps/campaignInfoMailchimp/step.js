@@ -11,7 +11,7 @@ step.campaignInfoMailchimp = function (inputs) {
 	};
 
 	var options = {
-		url: config.get("url") + "/campaigns/" + inputsLogic.campaignId
+		url: config.get("mailChimpApiUrl") + "/campaigns/" + inputsLogic.campaignId
 	}
 
 	return httpService.get(options);
