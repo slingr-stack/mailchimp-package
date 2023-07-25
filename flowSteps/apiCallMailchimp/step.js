@@ -40,7 +40,12 @@ step.apiCallMailchimp = function (inputs) {
 		fileName: inputsLogic.fileName,
 		fullResponse : inputsLogic.fullResponse,
 		connectionTimeout: inputsLogic.connectionTimeout,
-		readTimeout: inputsLogic.readTimeout
+		readTimeout: inputsLogic.readTimeout,
+		authorization:{
+			type: "basic",
+			username: "anyUser",
+			password: config.get("apiKey")
+		}
 	}
 
 	switch (inputsLogic.method.toLowerCase()) {
@@ -49,19 +54,19 @@ step.apiCallMailchimp = function (inputs) {
 		case 'post':
 			return httpService.post(options);
 		case 'delete':
-			return httpService.delete(options);
+			return httpService.delete(setRequestHeaders(options));
 		case 'put':
-			return httpService.put(options);
+			return httpService.put(setRequestHeaders(options));
 		case 'connect':
-			return httpService.connect(options);
+			return httpService.connect(setRequestHeaders(options));
 		case 'head':
-			return httpService.head(options);
+			return httpService.head(setRequestHeaders(options));
 		case 'options':
-			return httpService.options(options);
+			return httpService.options(setRequestHeaders(options));
 		case 'patch':
-			return httpService.patch(options);
+			return httpService.patch(setRequestHeaders(options));
 		case 'trace':
-			return httpService.trace(options);
+			return httpService.trace(setRequestHeaders(options));
 	}
 
 	//REPLACE THIS WITH YOUR OWN CODE

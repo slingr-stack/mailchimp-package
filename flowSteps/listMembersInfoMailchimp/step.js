@@ -11,7 +11,12 @@ step.listMembersInfoMailchimp = function (inputs) {
 	};
 
 	var options = {
-		url: config.get("mailChimpApiUrl") + "/lists/" + inputsLogic.listId + "/members"
+		url: config.get("mailChimpApiUrl") + "/lists/" + inputsLogic.listId + "/members",
+		authorization:{
+			type: "basic",
+			username: "anyUser",
+			password: config.get("apiKey")
+		}
 	}
 
 	return httpService.get(options);

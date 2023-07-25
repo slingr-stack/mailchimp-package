@@ -11,7 +11,12 @@ step.campaignInfoMailchimp = function (inputs) {
 	};
 
 	var options = {
-		url: config.get("mailChimpApiUrl") + "/campaigns/" + inputsLogic.campaignId
+		url: config.get("mailChimpApiUrl") + "/campaigns/" + inputsLogic.campaignId,
+		authorization:{
+			type: "basic",
+			username: "anyUser",
+			password: config.get("apiKey")
+		}
 	}
 
 	return httpService.get(options);

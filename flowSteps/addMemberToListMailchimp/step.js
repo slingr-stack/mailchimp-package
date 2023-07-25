@@ -19,7 +19,12 @@ step.addMemberToListMailchimp = function (inputs) {
 
     var options = {
         url: config.get("mailChimpApiUrl") + "/lists/"+inputsLogic.listId+"/members",
-        body: inputsLogic
+        authorization:{
+            type: "basic",
+            username: "anyUser",
+            password: config.get("apiKey")
+        },
+        body: inputsLogic,
     }
 
     return httpService.post(options);

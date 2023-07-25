@@ -15,6 +15,11 @@ step.addCampaignMailchimp = function (inputs) {
 
     var options = {
         url: config.get("mailChimpApiUrl") + "/campaigns",
+        authorization:{
+            type: "basic",
+            username: "anyUser",
+            password: config.get("apiKey")
+        },
         body: inputsLogic
     }
 

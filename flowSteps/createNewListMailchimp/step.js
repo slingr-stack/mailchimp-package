@@ -36,6 +36,11 @@ step.createNewListMailchimp = function (inputs) {
 
     var options = {
         url: config.get("mailChimpApiUrl") + "/lists",
+        authorization:{
+            type: "basic",
+            username: "anyUser",
+            password: config.get("apiKey")
+        },
         body: inputsLogic
     }
 
