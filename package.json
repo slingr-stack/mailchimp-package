@@ -18,6 +18,27 @@
 			"required": true
 		},
 		{
+			"name": "server",
+			"label": "Server",
+			"type": "label",
+			"description": "",
+			"value": "config.apiKey.substring(apiKey.lastIndexOf('-') + 1)"
+		},
+		{
+			"name": "mailChimpServer",
+			"label": "MailChimp Server",
+			"type": "label",
+			"description": "",
+			"value": "config.server == null || server.trim() === '' ? 'us1' : server.trim();"
+		},
+		{
+			"name": "mailChimpApiUrl",
+			"label": "MailChimp Api Url",
+			"type": "label",
+			"description": "",
+			"value": " \"https://\" + config.mailChimpServer + \".api.mailchimp.com/3.0\";"
+		},
+		{
 			"name": "webhook",
 			"label": "Webhook URL",
 			"type": "label",

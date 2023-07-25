@@ -1,3 +1,9 @@
+/****************************************************
+ Dependencies
+ ****************************************************/
+
+var httpService = dependencies.http;
+
 step.createNewListMailchimp = function (inputs) {
 
     var inputsLogic = {
@@ -29,10 +35,15 @@ step.createNewListMailchimp = function (inputs) {
     };
 
     var options = {
-        path: "/lists",
+        url: config.get("mailChimpApiUrl") + "/lists",
+        authorization:{
+            type: "basic",
+            username: "anyUser",
+            password: config.get("apiKey")
+        },
         body: inputsLogic
     }
 
-    return pkg.mailchimp.functions.post(options);
+    return httpService.post(options);
 
 }

@@ -1,20 +1,11 @@
-/**
- * This flow step will send generic request.
- *
- * @param {object} inputs
- * {text} method, This is used to config method.
- * {text} url, This is used to config external URL.
- * {Array[string]} pathVariables, This is used to config path variables.
- * {Array[string]} headers, This is used to config headers.
- * {Array[string]} params, This is used to config params.
- * {string} body, This is used to send body request.
- * {boolean} followRedirects, This is used to config follow redirects.
- * {boolean} download, This is used to config download.
- * {boolean} fullResponse, This is used to config full response.
- * {number} connectionTimeout, Read timeout interval, in milliseconds.
- * {number} readTimeout, Connect timeout interval, in milliseconds.
- */
-step.apiCall = function (inputs) {
+/****************************************************
+ Dependencies
+ ****************************************************/
+
+var httpService = dependencies.http;
+
+
+step.apiCallMailchimp = function (inputs) {
 
 	var inputsLogic = {
 		headers: inputs.headers || [],
@@ -39,7 +30,7 @@ step.apiCall = function (inputs) {
 
 
 	var options = {
-		path: parse(inputsLogic.url.urlValue, inputsLogic.url.paramsValue),
+		path: config.get("mailChimpApiUrl") + parse(inputsLogic.url.urlValue, inputsLogic.url.paramsValue),
 		params: inputsLogic.params,
 		headers: inputsLogic.headers,
 		body: inputsLogic.body,
@@ -49,28 +40,33 @@ step.apiCall = function (inputs) {
 		fileName: inputsLogic.fileName,
 		fullResponse : inputsLogic.fullResponse,
 		connectionTimeout: inputsLogic.connectionTimeout,
-		readTimeout: inputsLogic.readTimeout
+		readTimeout: inputsLogic.readTimeout,
+		authorization:{
+			type: "basic",
+			username: "anyUser",
+			password: config.get("apiKey")
+		}
 	}
 
 	switch (inputsLogic.method.toLowerCase()) {
 		case 'get':
-			return pkg.mailchimp.functions.get(options);
+			return httpService.get(options);
 		case 'post':
-			return pkg.mailchimp.functions.post(options);
+			return httpService.post(options);
 		case 'delete':
-			return pkg.mailchimp.functions.delete(options);
+			return httpService.delete(setRequestHeaders(options));
 		case 'put':
-			return pkg.mailchimp.functions.put(options);
+			return httpService.put(setRequestHeaders(options));
 		case 'connect':
-			return pkg.mailchimp.functions.connect(options);
+			return httpService.connect(setRequestHeaders(options));
 		case 'head':
-			return pkg.mailchimp.functions.head(options);
+			return httpService.head(setRequestHeaders(options));
 		case 'options':
-			return pkg.mailchimp.functions.options(options);
+			return httpService.options(setRequestHeaders(options));
 		case 'patch':
-			return pkg.mailchimp.functions.patch(options);
+			return httpService.patch(setRequestHeaders(options));
 		case 'trace':
-			return pkg.mailchimp.functions.trace(options);
+			return httpService.trace(setRequestHeaders(options));
 	}
 
 	//REPLACE THIS WITH YOUR OWN CODE

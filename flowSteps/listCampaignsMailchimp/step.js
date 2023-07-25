@@ -1,9 +1,20 @@
+/****************************************************
+ Dependencies
+ ****************************************************/
+
+var httpService = dependencies.http;
+
 step.listCampaignsMailchimp = function (inputs) {
 
 	var options = {
-		path: "/campaigns"
+		url: config.get("mailChimpApiUrl") + "/campaigns",
+		authorization:{
+			type: "basic",
+			username: "anyUser",
+			password: config.get("apiKey")
+		}
 	}
 
-	return pkg.mailchimp.functions.get(options);
+	return httpService.get(options);
 
 }

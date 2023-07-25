@@ -2,7 +2,7 @@
  Dependencies
  ****************************************************/
 
-var httpReference = svc[config.http];
+var httpReference = dependencies.http;
 
 var httpDependency = {
     get: httpReference.get,
@@ -2692,15 +2692,6 @@ var parse = function (str) {
     }
 }
 
-/****************************************************
- Constants
- ****************************************************/
-
-
-var apiKey = config.get("apiKey");
-var server = apiKey.substring(apiKey.lastIndexOf('-') + 1);
-var MAILCHIMP_SERVER = server == null || server.trim() === '' ? 'us1' : server.trim();
-var MAILCHIMP_API_URL = "https://" + MAILCHIMP_SERVER + ".api.mailchimp.com/3.0/";
 
 /****************************************************
  Configurator
@@ -2719,7 +2710,7 @@ var Mailchimp = function (options) {
 
 function setApiUri(options) {
     var url = options.path || "";
-    options.url = MAILCHIMP_API_URL + url;
+    options.url = config.get("mailChimpApiUrl") + url;
     sys.logs.debug('[mailchimp] Set url: ' + options.path + "->" + options.url);
     return options;
 }
@@ -2730,7 +2721,7 @@ function setRequestHeaders(options) {
     authorization = mergeJSON(authorization, {
         type: "basic",
         username: "anyUser",
-        password: apiKey
+        password: config.get("apiKey")
     });
     options.authorization = authorization;
     return options;
