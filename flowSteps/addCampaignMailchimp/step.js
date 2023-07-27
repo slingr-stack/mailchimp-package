@@ -26,3 +26,42 @@ step.addCampaignMailchimp = function (inputs) {
     return httpService.post(options);
 
 }
+
+/*
+,
+		{
+			"type": "flowStep",
+			"namespace": "steps",
+			"path": "/flowSteps/listCampaignsMailchimp"
+		},
+		{
+			"type": "flowStep",
+			"namespace": "steps",
+			"path": "/flowSteps/campaignInfoMailchimp"
+		},
+		{
+			"type": "flowStep",
+			"namespace": "steps",
+			"path": "/flowSteps/addCampaignMailchimp"
+		},
+		{
+			"type": "flowStep",
+			"namespace": "steps",
+			"path": "/flowSteps/listInfoMailchimp"
+		},
+		{
+			"type": "flowStep",
+			"namespace": "steps",
+			"path": "/flowSteps/createNewListMailchimp"
+		},
+		{
+			"type": "flowStep",
+			"namespace": "steps",
+			"path": "/flowSteps/addMemberToListMailchimp"
+		},
+		{
+			"type": "flowStep",
+			"namespace": "steps",
+			"path": "/flowSteps/listMembersInfoMailchimp"
+		}
+ */

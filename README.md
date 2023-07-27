@@ -9,7 +9,7 @@
     <tbody>
     <tr>
         <td>MailChimp package</td>
-        <td>July 24, 2023</td>
+        <td>July 27, 2023</td>
         <td>Detailed description of the API of the MailChimp package.</td>
     </tr>
     </tbody>
@@ -92,11 +92,11 @@ for more information on how to configure them.
 
 # Javascript API
 
-The Javascript API of the mailchimp endpoint has three pieces:
+The Javascript API of the mailchimp package has three pieces:
 
 - **HTTP requests**: These allow to make regular HTTP requests.
 - **Shortcuts**: These are helpers to make HTTP request to the API in a more convenient way.
-- **Additional Helpers**: These helpers provide additional features that facilitate or improves the endpoint usage in SLINGR.
+- **Additional Helpers**: These helpers provide additional features that facilitate or improve the package usage in SLINGR.
 
 ## HTTP requests
 You can make `PATCH`,`POST`,`GET`,`DELETE`,`PUT` requests to the [mailchimp API](https://mailchimp.com/developer/marketing/guides/quick-start/) like this:
@@ -111,12 +111,12 @@ var response = pkg.mailchimp.functions.put('/ecommerce/stores/:store_id/products
 var response = pkg.mailchimp.functions.put('/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id')
 ```
 
-Please take a look at the documentation of the [HTTP endpoint](https://github.com/slingr-stack/http-endpoint#javascript-api)
+Please take a look at the documentation of the [HTTP service](https://github.com/slingr-stack/http-service)
 for more information about generic requests.
 
 ## Shortcuts
 
-Instead of having to use the generic HTTP methods, you can (and should) make use of the helpers provided in the endpoint:
+Instead of having to use the generic HTTP methods, you can (and should) make use of the helpers provided in the package:
 <details>
     <summary>Click here to see all the helpers</summary>
 
@@ -1327,7 +1327,7 @@ pkg.mailchimp.functions.lists.members.put(listId, subscriberHash, body)
 
 ## Flow Step
 
-As an alternative option to using scripts, you can make use of Flows and Flow Steps specifically created for the endpoint:
+As an alternative option to using scripts, you can make use of Flows and Flow Steps specifically created for the package:
 <details>
     <summary>Click here to see the Flow Steps</summary>
 

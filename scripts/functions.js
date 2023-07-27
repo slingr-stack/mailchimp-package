@@ -19,8 +19,7 @@ function handleRequestWithRetry(requestFn, options, callbackData, callbacks) {
     try {
         return requestFn(options, callbackData, callbacks);
     } catch (error) {
-        sys.logs.error(JSON.stringify(error));
-        sys.logs.info("[mailchimp] Handling request...");
+        sys.logs.info("[mailchimp] Handling request "+ JSON.stringify(error));
     }
 }
 
