@@ -9,7 +9,7 @@
     <tbody>
     <tr>
         <td>MailChimp package</td>
-        <td>July 11, 2023</td>
+        <td>July 24, 2023</td>
         <td>Detailed description of the API of the MailChimp package.</td>
     </tr>
     </tbody>
