@@ -2,7 +2,7 @@
  Listeners
  ****************************************************/
 
-listeners.defaultWebhook = {
+listeners.defaultWebhookMailchimp = {
     label: 'Catch HTTP mailchimp events',
     type: 'service',
     options: {
