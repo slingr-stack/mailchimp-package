@@ -1,189 +1,81 @@
 # Javascript API
 
-The Javascript API of the mailchimp endpoint has three pieces:
+The Javascript API of the mailchimp package has three pieces:
 
-- **HTTP requests**: These allow to make regular HTTP requests.
+- **HTTP requests**: These allow making regular HTTP requests.
 - **Shortcuts**: These are helpers to make HTTP request to the API in a more convenient way.
-- **Additional Helpers**: These helpers provide additional features that facilitate or improves the endpoint usage in SLINGR.
+- **Additional Helpers**: These helpers provide additional features that facilitate or improves the package usage in SLINGR.
 
 ## HTTP requests
 You can make `PATCH`,`POST`,`GET`,`DELETE`,`PUT` requests to the [mailchimp API](API_URL_HERE) like this:
 ```javascript
 var response = pkg.mailchimp.functions.patch('/ecommerce/stores/:store_id/orders/:order_id', body)
 var response = pkg.mailchimp.functions.patch('/ecommerce/stores/:store_id/orders/:order_id')
-var response = pkg.mailchimp.functions.post('/batch-webhooks', body)
-var response = pkg.mailchimp.functions.post('/batch-webhooks')
-var response = pkg.mailchimp.functions.get('/reports/:campaign_id/unsubscribed/:subscriber_hash')
-var response = pkg.mailchimp.functions.delete('/ecommerce/stores/:store_id/orders/:order_id/lines/:line_id')
-var response = pkg.mailchimp.functions.put('/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id', body)
-var response = pkg.mailchimp.functions.put('/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id')
+var response = pkg.mailchimp.functions.post('/lists/:list_id/interest-categories', body)
+var response = pkg.mailchimp.functions.post('/lists/:list_id/interest-categories')
+var response = pkg.mailchimp.functions.get('/conversations')
+var response = pkg.mailchimp.functions.delete('/lists/:list_id/interest-categories/:interest_category_id/interests/:interest_id')
+var response = pkg.mailchimp.functions.put('/lists/:list_id/members/:subscriber_hash', body)
+var response = pkg.mailchimp.functions.put('/lists/:list_id/members/:subscriber_hash')
 ```
 
-Please take a look at the documentation of the [HTTP endpoint](https://github.com/slingr-stack/http-endpoint#javascript-api)
+Please take a look at the documentation of the [HTTP service](https://github.com/slingr-stack/http-service)
 for more information about generic requests.
 
 ## Shortcuts
 
-Instead of having to use the generic HTTP methods, you can (and should) make use of the helpers provided in the endpoint:
+Instead of having to use the generic HTTP methods, you can (and should) make use of the helpers provided in the package:
 <details>
     <summary>Click here to see all the helpers</summary>
 
 <br>
 
-* API URL: '/batch-webhooks/:batch_webhook_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.batchWebhooks.patch(batchWebhookId, body)
-```
----
-* API URL: '/campaign-folders/:folder_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.campaignFolders.patch(folderId, body)
-```
----
-* API URL: '/campaigns/:campaign_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.campaigns.patch(campaignId, body)
-```
----
-* API URL: '/campaigns/:campaign_id/feedback/:feedback_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.campaigns.feedback.patch(campaignId, feedbackId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.patch(storeId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/carts/:cart_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.carts.patch(storeId, cartId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/carts/:cart_id/lines/:line_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.carts.lines.patch(storeId, cartId, lineId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/customers/:customer_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.customers.patch(storeId, customerId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/orders/:order_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.orders.patch(storeId, orderId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/orders/:order_id/lines/:line_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.orders.lines.patch(storeId, orderId, lineId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/products/:product_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.products.patch(storeId, productId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/products/:product_id/images/:image_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.products.images.patch(storeId, productId, imageId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.products.variants.patch(storeId, productId, variantId, body)
-```
----
-* API URL: '/file-manager/files/:file_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.fileManager.files.patch(fileId, body)
-```
----
-* API URL: '/file-manager/folders/:folder_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.fileManager.folders.patch(folderId, body)
-```
----
-* API URL: '/lists/:list_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.lists.patch(listId, body)
-```
----
-* API URL: '/lists/:list_id/interest-categories/:interest_category_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.lists.interestCategories.patch(listId, interestCategoryId, body)
-```
----
-* API URL: '/lists/:list_id/interest-categories/:interest_category_id/interests/:interest_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.lists.interestCategories.interests.patch(listId, interestCategoryId, interestId, body)
-```
----
-* API URL: '/lists/:list_id/members/:subscriber_hash'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.lists.members.patch(listId, subscriberHash, body)
-```
----
-* API URL: '/lists/:list_id/members/:subscriber_hash/notes/:note_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.lists.members.notes.patch(listId, subscriberHash, noteId, body)
-```
----
-* API URL: '/lists/:list_id/merge-fields/:merge_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.lists.mergeFields.patch(listId, mergeId, body)
-```
----
-* API URL: '/lists/:list_id/segments/:segment_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.lists.segments.patch(listId, segmentId, body)
-```
----
-* API URL: '/lists/:list_id/webhooks/:webhook_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.lists.webhooks.patch(listId, webhookId, body)
-```
----
-* API URL: '/template-folders/:folder_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.templateFolders.patch(folderId, body)
-```
----
-* API URL: '/templates/:template_id'
-* HTTP Method: 'PATCH'
-```javascript
-pkg.mailchimp.functions.templates.patch(templateId, body)
-```
----
 * API URL: '/authorized-apps'
 * HTTP Method: 'POST'
 ```javascript
 pkg.mailchimp.functions.authorizedApps.post(body)
+```
+---
+* API URL: '/authorized-apps'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.authorizedApps.get()
+```
+---
+* API URL: '/authorized-apps/:app_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.authorizedApps.get()
+```
+---
+* API URL: '/automations'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.automations.get()
+```
+---
+* API URL: '/automations/:workflow_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.automations.get()
+```
+---
+* API URL: '/automations/:workflow_id/emails'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.automations.emails.get()
+```
+---
+* API URL: '/automations/:workflow_id/removed-subscribers'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.automations.removedSubscribers.post(workflowId, body)
+```
+---
+* API URL: '/automations/:workflow_id/removed-subscribers'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.automations.removedSubscribers.get(workflowId)
 ```
 ---
 * API URL: '/automations/:workflow_id/actions/pause-all-emails'
@@ -198,6 +90,30 @@ pkg.mailchimp.functions.automations.actions.pauseAllEmails.post(workflowId, body
 pkg.mailchimp.functions.automations.actions.startAllEmails.post(workflowId, body)
 ```
 ---
+* API URL: '/automations/:workflow_id/emails/:workflow_email_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.automations.emails.get(workflowId)
+```
+---
+* API URL: '/automations/:workflow_id/emails/:workflow_email_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.automations.emails.delete(workflowId, workflowEmailId)
+```
+---
+* API URL: '/automations/:workflow_id/emails/:workflow_email_id/queue'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.automations.emails.queue.post(workflowId, workflowEmailId, body)
+```
+---
+* API URL: '/automations/:workflow_id/emails/:workflow_email_id/queue'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.automations.emails.queue.get(workflowId)
+```
+---
 * API URL: '/automations/:workflow_id/emails/:workflow_email_id/actions/pause'
 * HTTP Method: 'POST'
 ```javascript
@@ -210,22 +126,10 @@ pkg.mailchimp.functions.automations.emails.actions.pause.post(workflowId, workfl
 pkg.mailchimp.functions.automations.emails.actions.start.post(workflowId, workflowEmailId, body)
 ```
 ---
-* API URL: '/automations/:workflow_id/emails/:workflow_email_id/queue'
-* HTTP Method: 'POST'
+* API URL: '/automations/:workflow_id/emails/:workflow_email_id/queue/:subscriber_hash'
+* HTTP Method: 'GET'
 ```javascript
-pkg.mailchimp.functions.automations.emails.queue.post(workflowId, workflowEmailId, body)
-```
----
-* API URL: '/automations/:workflow_id/removed-subscribers'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.automations.removedSubscribers.post(workflowId, body)
-```
----
-* API URL: '/batches'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.batches.post(body)
+pkg.mailchimp.functions.automations.emails.queue.get(workflowId, workflowEmailId)
 ```
 ---
 * API URL: '/batch-webhooks'
@@ -234,16 +138,142 @@ pkg.mailchimp.functions.batches.post(body)
 pkg.mailchimp.functions.batchWebhooks.post(body)
 ```
 ---
+* API URL: '/batch-webhooks'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.batchWebhooks.get()
+```
+---
+* API URL: '/batch-webhooks/:batch_webhook_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.batchWebhooks.patch(batchWebhookId, body)
+```
+---
+* API URL: '/batch-webhooks/:batch_webhook_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.batchWebhooks.get()
+```
+---
+* API URL: '/batch-webhooks/:batch_webhook_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.batchWebhooks.delete(batchWebhookId)
+```
+---
+* API URL: '/batches'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.batches.post(body)
+```
+---
+* API URL: '/batches'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.batches.get()
+```
+---
+* API URL: '/batches/:batch_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.batches.get()
+```
+---
+* API URL: '/batches/:batch_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.batches.delete(batchId)
+```
+---
 * API URL: '/campaign-folders'
 * HTTP Method: 'POST'
 ```javascript
 pkg.mailchimp.functions.campaignFolders.post(body)
 ```
 ---
+* API URL: '/campaign-folders'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.campaignFolders.get()
+```
+---
+* API URL: '/campaign-folders/:folder_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.campaignFolders.patch(folderId, body)
+```
+---
+* API URL: '/campaign-folders/:folder_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.campaignFolders.get()
+```
+---
+* API URL: '/campaign-folders/:folder_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.campaignFolders.delete(folderId)
+```
+---
 * API URL: '/campaigns'
 * HTTP Method: 'POST'
 ```javascript
 pkg.mailchimp.functions.campaigns.post(body)
+```
+---
+* API URL: '/campaigns'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.campaigns.get()
+```
+---
+* API URL: '/campaigns/:campaign_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.campaigns.patch(campaignId, body)
+```
+---
+* API URL: '/campaigns/:campaign_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.campaigns.get()
+```
+---
+* API URL: '/campaigns/:campaign_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.campaigns.delete(campaignId)
+```
+---
+* API URL: '/campaigns/:campaign_id/content'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.campaigns.content.get(campaignId)
+```
+---
+* API URL: '/campaigns/:campaign_id/content'
+* HTTP Method: 'PUT'
+```javascript
+pkg.mailchimp.functions.campaigns.content.put(campaignId, body)
+```
+---
+* API URL: '/campaigns/:campaign_id/feedback'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.campaigns.feedback.post(campaignId, body)
+```
+---
+* API URL: '/campaigns/:campaign_id/feedback'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.campaigns.feedback.get()
+```
+---
+* API URL: '/campaigns/:campaign_id/send-checklist'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.campaigns.sendChecklist.get(campaignId)
 ```
 ---
 * API URL: '/campaigns/:campaign_id/actions/cancel-send'
@@ -294,286 +324,10 @@ pkg.mailchimp.functions.campaigns.actions.test.post(campaignId, body)
 pkg.mailchimp.functions.campaigns.actions.unschedule.post(campaignId, body)
 ```
 ---
-* API URL: '/campaigns/:campaign_id/feedback'
-* HTTP Method: 'POST'
+* API URL: '/campaigns/:campaign_id/feedback/:feedback_id'
+* HTTP Method: 'PATCH'
 ```javascript
-pkg.mailchimp.functions.campaigns.feedback.post(campaignId, body)
-```
----
-* API URL: '/conversations/:conversation_id/messages'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.conversations.messages.post(conversationId, body)
-```
----
-* API URL: '/ecommerce/stores'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.post(body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/carts'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.carts.post(body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/carts/:cart_id'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.carts.post(storeId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/carts/:cart_id/lines'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.carts.lines.post(storeId, cartId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/customers'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.customers.post(storeId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/orders'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.orders.post(storeId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/products'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.products.post(storeId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/products/:product_id/images'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.products.images.post(storeId, productId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/products/:product_id/variants'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.products.variants.post(storeId, productId, body)
-```
----
-* API URL: '/file-manager/files'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.fileManager.files.post(body)
-```
----
-* API URL: '/file-manager/folders'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.fileManager.folders.post(body)
-```
----
-* API URL: '/lists'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.lists.post(body)
-```
----
-* API URL: '/lists/:list_id'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.lists.post(body)
-```
----
-* API URL: '/lists/:list_id/interest-categories'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.lists.interestCategories.post(body)
-```
----
-* API URL: '/lists/:list_id/interest-categories/:interest_category_id'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.lists.interestCategories.post(listId, body)
-```
----
-* API URL: '/lists/:list_id/interest-categories/:interest_category_id/interests'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.lists.interestCategories.interests.post(listId, interestCategoryId, body)
-```
----
-* API URL: '/lists/:list_id/members'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.lists.members.post(listId, body)
-```
----
-* API URL: '/lists/:list_id/members/:subscriber_hash/notes'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.lists.members.notes.post(listId, subscriberHash, body)
-```
----
-* API URL: '/lists/:list_id/merge-fields'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.lists.mergeFields.post(listId, body)
-```
----
-* API URL: '/lists/:list_id/segments'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.lists.segments.post(body)
-```
----
-* API URL: '/lists/:list_id/segments/:segment_id'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.lists.segments.post(listId, body)
-```
----
-* API URL: '/lists/:list_id/segments/:segment_id/members'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.lists.segments.members.post(listId, segmentId, body)
-```
----
-* API URL: '/lists/:list_id/signup-forms'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.lists.signupForms.post(listId, body)
-```
----
-* API URL: '/lists/:list_id/webhooks'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.lists.webhooks.post(listId, body)
-```
----
-* API URL: '/template-folders'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.templateFolders.post(body)
-```
----
-* API URL: '/templates'
-* HTTP Method: 'POST'
-```javascript
-pkg.mailchimp.functions.templates.post(body)
-```
----
-* API URL: '/authorized-apps'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.authorizedApps.get()
-```
----
-* API URL: '/authorized-apps/:app_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.authorizedApps.get()
-```
----
-* API URL: '/automations'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.automations.get()
-```
----
-* API URL: '/automations/:workflow_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.automations.get()
-```
----
-* API URL: '/automations/:workflow_id/emails'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.automations.emails.get()
-```
----
-* API URL: '/automations/:workflow_id/emails/:workflow_email_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.automations.emails.get(workflowId)
-```
----
-* API URL: '/automations/:workflow_id/emails/:workflow_email_id/queue'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.automations.emails.queue.get(workflowId)
-```
----
-* API URL: '/automations/:workflow_id/emails/:workflow_email_id/queue/:subscriber_hash'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.automations.emails.queue.get(workflowId, workflowEmailId)
-```
----
-* API URL: '/automations/:workflow_id/removed-subscribers'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.automations.removedSubscribers.get(workflowId)
-```
----
-* API URL: '/batches'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.batches.get()
-```
----
-* API URL: '/batches/:batch_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.batches.get()
-```
----
-* API URL: '/batch-webhooks'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.batchWebhooks.get()
-```
----
-* API URL: '/batch-webhooks/:batch_webhook_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.batchWebhooks.get()
-```
----
-* API URL: '/campaign-folders'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.campaignFolders.get()
-```
----
-* API URL: '/campaign-folders/:folder_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.campaignFolders.get()
-```
----
-* API URL: '/campaigns'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.campaigns.get()
-```
----
-* API URL: '/campaigns/:campaign_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.campaigns.get()
-```
----
-* API URL: '/campaigns/:campaign_id/content'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.campaigns.content.get(campaignId)
-```
----
-* API URL: '/campaigns/:campaign_id/feedback'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.campaigns.feedback.get()
+pkg.mailchimp.functions.campaigns.feedback.patch(campaignId, feedbackId, body)
 ```
 ---
 * API URL: '/campaigns/:campaign_id/feedback/:feedback_id'
@@ -582,10 +336,10 @@ pkg.mailchimp.functions.campaigns.feedback.get()
 pkg.mailchimp.functions.campaigns.feedback.get(campaignId)
 ```
 ---
-* API URL: '/campaigns/:campaign_id/send-checklist'
-* HTTP Method: 'GET'
+* API URL: '/campaigns/:campaign_id/feedback/:feedback_id'
+* HTTP Method: 'DELETE'
 ```javascript
-pkg.mailchimp.functions.campaigns.sendChecklist.get(campaignId)
+pkg.mailchimp.functions.campaigns.feedback.delete(campaignId, feedbackId)
 ```
 ---
 * API URL: '/conversations'
@@ -601,6 +355,12 @@ pkg.mailchimp.functions.conversations.get()
 ```
 ---
 * API URL: '/conversations/:conversation_id/messages'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.conversations.messages.post(conversationId, body)
+```
+---
+* API URL: '/conversations/:conversation_id/messages'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.conversations.messages.get()
@@ -613,9 +373,21 @@ pkg.mailchimp.functions.conversations.messages.get(conversationId)
 ```
 ---
 * API URL: '/ecommerce/stores'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.post(body)
+```
+---
+* API URL: '/ecommerce/stores'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.ecommerce.stores.get()
+```
+---
+* API URL: '/ecommerce/stores/:store_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.patch(storeId, body)
 ```
 ---
 * API URL: '/ecommerce/stores/:store_id'
@@ -624,16 +396,22 @@ pkg.mailchimp.functions.ecommerce.stores.get()
 pkg.mailchimp.functions.ecommerce.stores.get()
 ```
 ---
-* API URL: '/ecommerce/stores/:store_id/carts/:cart_id/lines'
-* HTTP Method: 'GET'
+* API URL: '/ecommerce/stores/:store_id'
+* HTTP Method: 'DELETE'
 ```javascript
-pkg.mailchimp.functions.ecommerce.stores.carts.lines.get(storeId)
+pkg.mailchimp.functions.ecommerce.stores.delete(storeId)
 ```
 ---
-* API URL: '/ecommerce/stores/:store_id/carts/:cart_id/lines/:line_id'
-* HTTP Method: 'GET'
+* API URL: '/ecommerce/stores/:store_id/carts'
+* HTTP Method: 'POST'
 ```javascript
-pkg.mailchimp.functions.ecommerce.stores.carts.lines.get(storeId, cartId)
+pkg.mailchimp.functions.ecommerce.stores.carts.post(body)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/customers'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.customers.post(storeId, body)
 ```
 ---
 * API URL: '/ecommerce/stores/:store_id/customers'
@@ -642,10 +420,10 @@ pkg.mailchimp.functions.ecommerce.stores.carts.lines.get(storeId, cartId)
 pkg.mailchimp.functions.ecommerce.stores.customers.get()
 ```
 ---
-* API URL: '/ecommerce/stores/:store_id/customers/:customer_id'
-* HTTP Method: 'GET'
+* API URL: '/ecommerce/stores/:store_id/orders'
+* HTTP Method: 'POST'
 ```javascript
-pkg.mailchimp.functions.ecommerce.stores.customers.get(storeId)
+pkg.mailchimp.functions.ecommerce.stores.orders.post(storeId, body)
 ```
 ---
 * API URL: '/ecommerce/stores/:store_id/orders'
@@ -654,22 +432,10 @@ pkg.mailchimp.functions.ecommerce.stores.customers.get(storeId)
 pkg.mailchimp.functions.ecommerce.stores.orders.get()
 ```
 ---
-* API URL: '/ecommerce/stores/:store_id/orders/:order_id'
-* HTTP Method: 'GET'
+* API URL: '/ecommerce/stores/:store_id/products'
+* HTTP Method: 'POST'
 ```javascript
-pkg.mailchimp.functions.ecommerce.stores.orders.get(storeId)
-```
----
-* API URL: '/ecommerce/stores/:store_id/orders/:order_id/lines'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.orders.lines.get(storeId)
-```
----
-* API URL: '/ecommerce/stores/:store_id/orders/:order_id/lines/:line_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.orders.lines.get(storeId, orderId)
+pkg.mailchimp.functions.ecommerce.stores.products.post(storeId, body)
 ```
 ---
 * API URL: '/ecommerce/stores/:store_id/products'
@@ -678,10 +444,106 @@ pkg.mailchimp.functions.ecommerce.stores.orders.lines.get(storeId, orderId)
 pkg.mailchimp.functions.ecommerce.stores.products.get()
 ```
 ---
+* API URL: '/ecommerce/stores/:store_id/carts/:cart_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.carts.patch(storeId, cartId, body)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/carts/:cart_id'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.carts.post(storeId, body)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/carts/:cart_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.carts.delete(storeId, cartId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/customers/:customer_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.customers.patch(storeId, customerId, body)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/customers/:customer_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.customers.get(storeId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/customers/:customer_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.customers.delete(storeId, customerId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/customers/:customer_id'
+* HTTP Method: 'PUT'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.customers.put(storeId, customerId, body)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/orders/:order_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.orders.patch(storeId, orderId, body)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/orders/:order_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.orders.get(storeId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/orders/:order_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.orders.delete(storeId, orderId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/products/:product_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.products.patch(storeId, productId, body)
+```
+---
 * API URL: '/ecommerce/stores/:store_id/products/:product_id'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.ecommerce.stores.products.get(storeId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/products/:product_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.products.delete(storeId, productId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/carts/:cart_id/lines'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.carts.lines.post(storeId, cartId, body)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/carts/:cart_id/lines'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.carts.lines.get(storeId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/orders/:order_id/lines'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.orders.lines.get(storeId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/products/:product_id/images'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.products.images.post(storeId, productId, body)
 ```
 ---
 * API URL: '/ecommerce/stores/:store_id/products/:product_id/images'
@@ -690,10 +552,10 @@ pkg.mailchimp.functions.ecommerce.stores.products.get(storeId)
 pkg.mailchimp.functions.ecommerce.stores.products.images.get(storeId)
 ```
 ---
-* API URL: '/ecommerce/stores/:store_id/products/:product_id/images/:image_id'
-* HTTP Method: 'GET'
+* API URL: '/ecommerce/stores/:store_id/products/:product_id/variants'
+* HTTP Method: 'POST'
 ```javascript
-pkg.mailchimp.functions.ecommerce.stores.products.images.get(storeId, productId)
+pkg.mailchimp.functions.ecommerce.stores.products.variants.post(storeId, productId, body)
 ```
 ---
 * API URL: '/ecommerce/stores/:store_id/products/:product_id/variants'
@@ -702,10 +564,88 @@ pkg.mailchimp.functions.ecommerce.stores.products.images.get(storeId, productId)
 pkg.mailchimp.functions.ecommerce.stores.products.variants.get(storeId)
 ```
 ---
+* API URL: '/ecommerce/stores/:store_id/carts/:cart_id/lines/:line_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.carts.lines.patch(storeId, cartId, lineId, body)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/carts/:cart_id/lines/:line_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.carts.lines.get(storeId, cartId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/carts/:cart_id/lines/:line_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.carts.lines.delete(storeId, cartId, lineId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/orders/:order_id/lines/:line_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.orders.lines.patch(storeId, orderId, lineId, body)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/orders/:order_id/lines/:line_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.orders.lines.get(storeId, orderId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/orders/:order_id/lines/:line_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.orders.lines.delete(storeId, orderId, lineId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/products/:product_id/images/:image_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.products.images.patch(storeId, productId, imageId, body)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/products/:product_id/images/:image_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.products.images.get(storeId, productId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/products/:product_id/images/:image_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.products.images.delete(storeId, productId, imageId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.products.variants.patch(storeId, productId, variantId, body)
+```
+---
 * API URL: '/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.ecommerce.stores.products.variants.get(storeId, productId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.products.variants.delete(storeId, productId, variantId)
+```
+---
+* API URL: '/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id'
+* HTTP Method: 'PUT'
+```javascript
+pkg.mailchimp.functions.ecommerce.stores.products.variants.put(storeId, productId, variantId, body)
+```
+---
+* API URL: '/file-manager/files'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.fileManager.files.post(body)
 ```
 ---
 * API URL: '/file-manager/files'
@@ -714,10 +654,10 @@ pkg.mailchimp.functions.ecommerce.stores.products.variants.get(storeId, productI
 pkg.mailchimp.functions.fileManager.files.get()
 ```
 ---
-* API URL: '/file-manager/files/:file_id'
-* HTTP Method: 'GET'
+* API URL: '/file-manager/folders'
+* HTTP Method: 'POST'
 ```javascript
-pkg.mailchimp.functions.fileManager.files.get()
+pkg.mailchimp.functions.fileManager.folders.post(body)
 ```
 ---
 * API URL: '/file-manager/folders'
@@ -726,10 +666,46 @@ pkg.mailchimp.functions.fileManager.files.get()
 pkg.mailchimp.functions.fileManager.folders.get()
 ```
 ---
+* API URL: '/file-manager/files/:file_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.fileManager.files.patch(fileId, body)
+```
+---
+* API URL: '/file-manager/files/:file_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.fileManager.files.get()
+```
+---
+* API URL: '/file-manager/files/:file_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.fileManager.files.delete(fileId)
+```
+---
+* API URL: '/file-manager/folders/:folder_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.fileManager.folders.patch(folderId, body)
+```
+---
 * API URL: '/file-manager/folders/:folder_id'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.fileManager.folders.get()
+```
+---
+* API URL: '/file-manager/folders/:folder_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.fileManager.folders.delete(folderId)
+```
+---
+* API URL: '/lists'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.lists.post(body)
 ```
 ---
 * API URL: '/lists'
@@ -739,21 +715,33 @@ pkg.mailchimp.functions.lists.get()
 ```
 ---
 * API URL: '/lists/:list_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.lists.patch(listId, body)
+```
+---
+* API URL: '/lists/:list_id'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.lists.post(body)
+```
+---
+* API URL: '/lists/:list_id'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.lists.get()
+```
+---
+* API URL: '/lists/:list_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.lists.delete(listId)
 ```
 ---
 * API URL: '/lists/:list_id/abuse-reports'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.lists.abuseReports.get()
-```
----
-* API URL: '/lists/:list_id/abuse-reports/:report_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.lists.abuseReports.get(listId)
 ```
 ---
 * API URL: '/lists/:list_id/activity'
@@ -774,22 +762,10 @@ pkg.mailchimp.functions.lists.clients.get(listId)
 pkg.mailchimp.functions.lists.growthHistory.get()
 ```
 ---
-* API URL: '/lists/:list_id/growth-history/:month'
-* HTTP Method: 'GET'
+* API URL: '/lists/:list_id/interest-categories'
+* HTTP Method: 'POST'
 ```javascript
-pkg.mailchimp.functions.lists.growthHistory.get(listId)
-```
----
-* API URL: '/lists/:list_id/interest-categories/:interest_category_id/interests'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.lists.interestCategories.interests.get(listId)
-```
----
-* API URL: '/lists/:list_id/interest-categories/:interest_category_id/interests/:interest_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.lists.interestCategories.interests.get(listId, interestCategoryId)
+pkg.mailchimp.functions.lists.interestCategories.post(body)
 ```
 ---
 * API URL: '/lists/:list_id/locations'
@@ -799,15 +775,189 @@ pkg.mailchimp.functions.lists.locations.get(listId)
 ```
 ---
 * API URL: '/lists/:list_id/members'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.lists.members.post(listId, body)
+```
+---
+* API URL: '/lists/:list_id/members'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.lists.members.get()
+```
+---
+* API URL: '/lists/:list_id/merge-fields'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.lists.mergeFields.post(listId, body)
+```
+---
+* API URL: '/lists/:list_id/merge-fields'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.lists.mergeFields.get()
+```
+---
+* API URL: '/lists/:list_id/segments'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.lists.segments.post(body)
+```
+---
+* API URL: '/lists/:list_id/segments'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.lists.segments.get()
+```
+---
+* API URL: '/lists/:list_id/signup-forms'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.lists.signupForms.post(listId, body)
+```
+---
+* API URL: '/lists/:list_id/signup-forms'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.lists.signupForms.get(listId)
+```
+---
+* API URL: '/lists/:list_id/webhooks'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.lists.webhooks.post(listId, body)
+```
+---
+* API URL: '/lists/:list_id/webhooks'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.lists.webhooks.get()
+```
+---
+* API URL: '/lists/:list_id/abuse-reports/:report_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.lists.abuseReports.get(listId)
+```
+---
+* API URL: '/lists/:list_id/growth-history/:month'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.lists.growthHistory.get(listId)
+```
+---
+* API URL: '/lists/:list_id/interest-categories/:interest_category_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.lists.interestCategories.patch(listId, interestCategoryId, body)
+```
+---
+* API URL: '/lists/:list_id/interest-categories/:interest_category_id'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.lists.interestCategories.post(listId, body)
+```
+---
+* API URL: '/lists/:list_id/interest-categories/:interest_category_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.lists.interestCategories.delete(listId, interestCategoryId)
+```
+---
+* API URL: '/lists/:list_id/members/:subscriber_hash'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.lists.members.patch(listId, subscriberHash, body)
 ```
 ---
 * API URL: '/lists/:list_id/members/:subscriber_hash'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.lists.members.get(listId)
+```
+---
+* API URL: '/lists/:list_id/members/:subscriber_hash'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.lists.members.delete(listId, subscriberHash)
+```
+---
+* API URL: '/lists/:list_id/members/:subscriber_hash'
+* HTTP Method: 'PUT'
+```javascript
+pkg.mailchimp.functions.lists.members.put(listId, subscriberHash, body)
+```
+---
+* API URL: '/lists/:list_id/merge-fields/:merge_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.lists.mergeFields.patch(listId, mergeId, body)
+```
+---
+* API URL: '/lists/:list_id/merge-fields/:merge_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.lists.mergeFields.get(listId)
+```
+---
+* API URL: '/lists/:list_id/merge-fields/:merge_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.lists.mergeFields.delete(listId, mergeId)
+```
+---
+* API URL: '/lists/:list_id/segments/:segment_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.lists.segments.patch(listId, segmentId, body)
+```
+---
+* API URL: '/lists/:list_id/segments/:segment_id'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.lists.segments.post(listId, body)
+```
+---
+* API URL: '/lists/:list_id/segments/:segment_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.lists.segments.get(listId)
+```
+---
+* API URL: '/lists/:list_id/segments/:segment_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.lists.segments.delete(listId, segmentId)
+```
+---
+* API URL: '/lists/:list_id/webhooks/:webhook_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.lists.webhooks.patch(listId, webhookId, body)
+```
+---
+* API URL: '/lists/:list_id/webhooks/:webhook_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.lists.webhooks.get(listId)
+```
+---
+* API URL: '/lists/:list_id/webhooks/:webhook_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.lists.webhooks.delete(listId, webhookId)
+```
+---
+* API URL: '/lists/:list_id/interest-categories/:interest_category_id/interests'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.lists.interestCategories.interests.post(listId, interestCategoryId, body)
+```
+---
+* API URL: '/lists/:list_id/interest-categories/:interest_category_id/interests'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.lists.interestCategories.interests.get(listId)
 ```
 ---
 * API URL: '/lists/:list_id/members/:subscriber_hash/activity'
@@ -823,39 +973,21 @@ pkg.mailchimp.functions.lists.members.goals.get(listId, subscriberHash)
 ```
 ---
 * API URL: '/lists/:list_id/members/:subscriber_hash/notes'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.lists.members.notes.post(listId, subscriberHash, body)
+```
+---
+* API URL: '/lists/:list_id/members/:subscriber_hash/notes'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.lists.members.notes.get(listId)
 ```
 ---
-* API URL: '/lists/:list_id/members/:subscriber_hash/notes/:note_id'
-* HTTP Method: 'GET'
+* API URL: '/lists/:list_id/segments/:segment_id/members'
+* HTTP Method: 'POST'
 ```javascript
-pkg.mailchimp.functions.lists.members.notes.get(listId, subscriberHash)
-```
----
-* API URL: '/lists/:list_id/merge-fields'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.lists.mergeFields.get()
-```
----
-* API URL: '/lists/:list_id/merge-fields/:merge_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.lists.mergeFields.get(listId)
-```
----
-* API URL: '/lists/:list_id/segments'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.lists.segments.get()
-```
----
-* API URL: '/lists/:list_id/segments/:segment_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.lists.segments.get(listId)
+pkg.mailchimp.functions.lists.segments.members.post(listId, segmentId, body)
 ```
 ---
 * API URL: '/lists/:list_id/segments/:segment_id/members'
@@ -864,22 +996,46 @@ pkg.mailchimp.functions.lists.segments.get(listId)
 pkg.mailchimp.functions.lists.segments.members.get(listId, segmentId)
 ```
 ---
-* API URL: '/lists/:list_id/signup-forms'
-* HTTP Method: 'GET'
+* API URL: '/lists/:list_id/interest-categories/:interest_category_id/interests/:interest_id'
+* HTTP Method: 'PATCH'
 ```javascript
-pkg.mailchimp.functions.lists.signupForms.get(listId)
+pkg.mailchimp.functions.lists.interestCategories.interests.patch(listId, interestCategoryId, interestId, body)
 ```
 ---
-* API URL: '/lists/:list_id/webhooks'
+* API URL: '/lists/:list_id/interest-categories/:interest_category_id/interests/:interest_id'
 * HTTP Method: 'GET'
 ```javascript
-pkg.mailchimp.functions.lists.webhooks.get()
+pkg.mailchimp.functions.lists.interestCategories.interests.get(listId, interestCategoryId)
 ```
 ---
-* API URL: '/lists/:list_id/webhooks/:webhook_id'
+* API URL: '/lists/:list_id/interest-categories/:interest_category_id/interests/:interest_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.lists.interestCategories.interests.delete(listId, interestCategoryId, interestId)
+```
+---
+* API URL: '/lists/:list_id/members/:subscriber_hash/notes/:note_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.lists.members.notes.patch(listId, subscriberHash, noteId, body)
+```
+---
+* API URL: '/lists/:list_id/members/:subscriber_hash/notes/:note_id'
 * HTTP Method: 'GET'
 ```javascript
-pkg.mailchimp.functions.lists.webhooks.get(listId)
+pkg.mailchimp.functions.lists.members.notes.get(listId, subscriberHash)
+```
+---
+* API URL: '/lists/:list_id/members/:subscriber_hash/notes/:note_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.lists.members.notes.delete(listId, subscriberHash, noteId)
+```
+---
+* API URL: '/lists/:list_id/segments/:segment_id/members/:subscriber_hash'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.lists.segments.members.delete(listId, segmentId, subscriberHash)
 ```
 ---
 * API URL: '/reports'
@@ -900,12 +1056,6 @@ pkg.mailchimp.functions.reports.get()
 pkg.mailchimp.functions.reports.abuseReports.get()
 ```
 ---
-* API URL: '/reports/:campaign_id/abuse-reports/:report_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.reports.abuseReports.get(campaignId)
-```
----
 * API URL: '/reports/:campaign_id/advice'
 * HTTP Method: 'GET'
 ```javascript
@@ -916,24 +1066,6 @@ pkg.mailchimp.functions.reports.advice.get(campaignId)
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.reports.clickDetails.get()
-```
----
-* API URL: '/reports/:campaign_id/click-details/:link_id'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.reports.clickDetails.get(campaignId)
-```
----
-* API URL: '/reports/:campaign_id/click-details/:link_id/members'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.reports.clickDetails.members.get(campaignId)
-```
----
-* API URL: '/reports/:campaign_id/click-details/:link_id/members/:subscriber_hash'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.reports.clickDetails.members.get(campaignId, linkId)
 ```
 ---
 * API URL: '/reports/:campaign_id/domain-performance'
@@ -954,12 +1086,6 @@ pkg.mailchimp.functions.reports.eepurl.get(campaignId)
 pkg.mailchimp.functions.reports.emailActivity.get()
 ```
 ---
-* API URL: '/reports/:campaign_id/email-activity/:subscriber_hash'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.reports.emailActivity.get(campaignId)
-```
----
 * API URL: '/reports/:campaign_id/locations'
 * HTTP Method: 'GET'
 ```javascript
@@ -970,12 +1096,6 @@ pkg.mailchimp.functions.reports.locations.get(campaignId)
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.reports.sentTo.get()
-```
----
-* API URL: '/reports/:campaign_id/sent-to/:subscriber_hash'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.reports.sentTo.get(campaignId)
 ```
 ---
 * API URL: '/reports/:campaign_id/sub-reports'
@@ -990,10 +1110,46 @@ pkg.mailchimp.functions.reports.subReports.get(campaignId)
 pkg.mailchimp.functions.reports.unsubscribed.get()
 ```
 ---
+* API URL: '/reports/:campaign_id/abuse-reports/:report_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.reports.abuseReports.get(campaignId)
+```
+---
+* API URL: '/reports/:campaign_id/click-details/:link_id'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.reports.clickDetails.get(campaignId)
+```
+---
+* API URL: '/reports/:campaign_id/email-activity/:subscriber_hash'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.reports.emailActivity.get(campaignId)
+```
+---
+* API URL: '/reports/:campaign_id/sent-to/:subscriber_hash'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.reports.sentTo.get(campaignId)
+```
+---
 * API URL: '/reports/:campaign_id/unsubscribed/:subscriber_hash'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.reports.unsubscribed.get(campaignId)
+```
+---
+* API URL: '/reports/:campaign_id/click-details/:link_id/members'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.reports.clickDetails.members.get(campaignId)
+```
+---
+* API URL: '/reports/:campaign_id/click-details/:link_id/members/:subscriber_hash'
+* HTTP Method: 'GET'
+```javascript
+pkg.mailchimp.functions.reports.clickDetails.members.get(campaignId, linkId)
 ```
 ---
 * API URL: '/search-campaigns'
@@ -1009,15 +1165,39 @@ pkg.mailchimp.functions.searchMembers.get()
 ```
 ---
 * API URL: '/template-folders'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.templateFolders.post(body)
+```
+---
+* API URL: '/template-folders'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.templateFolders.get()
 ```
 ---
 * API URL: '/template-folders/:folder_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.templateFolders.patch(folderId, body)
+```
+---
+* API URL: '/template-folders/:folder_id'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.templateFolders.get()
+```
+---
+* API URL: '/template-folders/:folder_id'
+* HTTP Method: 'DELETE'
+```javascript
+pkg.mailchimp.functions.templateFolders.delete(folderId)
+```
+---
+* API URL: '/templates'
+* HTTP Method: 'POST'
+```javascript
+pkg.mailchimp.functions.templates.post(body)
 ```
 ---
 * API URL: '/templates'
@@ -1027,177 +1207,15 @@ pkg.mailchimp.functions.templates.get()
 ```
 ---
 * API URL: '/templates/:template_id'
+* HTTP Method: 'PATCH'
+```javascript
+pkg.mailchimp.functions.templates.patch(templateId, body)
+```
+---
+* API URL: '/templates/:template_id'
 * HTTP Method: 'GET'
 ```javascript
 pkg.mailchimp.functions.templates.get()
-```
----
-* API URL: '/templates/:template_id/default-content'
-* HTTP Method: 'GET'
-```javascript
-pkg.mailchimp.functions.templates.defaultContent.get(templateId)
-```
----
-* API URL: '/automations/:workflow_id/emails/:workflow_email_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.automations.emails.delete(workflowId, workflowEmailId)
-```
----
-* API URL: '/batches/:batch_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.batches.delete(batchId)
-```
----
-* API URL: '/batch-webhooks/:batch_webhook_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.batchWebhooks.delete(batchWebhookId)
-```
----
-* API URL: '/campaign-folders/:folder_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.campaignFolders.delete(folderId)
-```
----
-* API URL: '/campaigns/:campaign_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.campaigns.delete(campaignId)
-```
----
-* API URL: '/campaigns/:campaign_id/feedback/:feedback_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.campaigns.feedback.delete(campaignId, feedbackId)
-```
----
-* API URL: '/ecommerce/stores/:store_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.delete(storeId)
-```
----
-* API URL: '/ecommerce/stores/:store_id/carts/:cart_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.carts.delete(storeId, cartId)
-```
----
-* API URL: '/ecommerce/stores/:store_id/carts/:cart_id/lines/:line_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.carts.lines.delete(storeId, cartId, lineId)
-```
----
-* API URL: '/ecommerce/stores/:store_id/customers/:customer_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.customers.delete(storeId, customerId)
-```
----
-* API URL: '/ecommerce/stores/:store_id/orders/:order_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.orders.delete(storeId, orderId)
-```
----
-* API URL: '/ecommerce/stores/:store_id/orders/:order_id/lines/:line_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.orders.lines.delete(storeId, orderId, lineId)
-```
----
-* API URL: '/ecommerce/stores/:store_id/products/:product_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.products.delete(storeId, productId)
-```
----
-* API URL: '/ecommerce/stores/:store_id/products/:product_id/images/:image_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.products.images.delete(storeId, productId, imageId)
-```
----
-* API URL: '/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.products.variants.delete(storeId, productId, variantId)
-```
----
-* API URL: '/file-manager/files/:file_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.fileManager.files.delete(fileId)
-```
----
-* API URL: '/file-manager/folders/:folder_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.fileManager.folders.delete(folderId)
-```
----
-* API URL: '/lists/:list_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.lists.delete(listId)
-```
----
-* API URL: '/lists/:list_id/interest-categories/:interest_category_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.lists.interestCategories.delete(listId, interestCategoryId)
-```
----
-* API URL: '/lists/:list_id/interest-categories/:interest_category_id/interests/:interest_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.lists.interestCategories.interests.delete(listId, interestCategoryId, interestId)
-```
----
-* API URL: '/lists/:list_id/members/:subscriber_hash'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.lists.members.delete(listId, subscriberHash)
-```
----
-* API URL: '/lists/:list_id/members/:subscriber_hash/notes/:note_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.lists.members.notes.delete(listId, subscriberHash, noteId)
-```
----
-* API URL: '/lists/:list_id/merge-fields/:merge_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.lists.mergeFields.delete(listId, mergeId)
-```
----
-* API URL: '/lists/:list_id/segments/:segment_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.lists.segments.delete(listId, segmentId)
-```
----
-* API URL: '/lists/:list_id/segments/:segment_id/members/:subscriber_hash'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.lists.segments.members.delete(listId, segmentId, subscriberHash)
-```
----
-* API URL: '/lists/:list_id/webhooks/:webhook_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.lists.webhooks.delete(listId, webhookId)
-```
----
-* API URL: '/template-folders/:folder_id'
-* HTTP Method: 'DELETE'
-```javascript
-pkg.mailchimp.functions.templateFolders.delete(folderId)
 ```
 ---
 * API URL: '/templates/:template_id'
@@ -1206,218 +1224,12 @@ pkg.mailchimp.functions.templateFolders.delete(folderId)
 pkg.mailchimp.functions.templates.delete(templateId)
 ```
 ---
-* API URL: '/campaigns/:campaign_id/content'
-* HTTP Method: 'PUT'
+* API URL: '/templates/:template_id/default-content'
+* HTTP Method: 'GET'
 ```javascript
-pkg.mailchimp.functions.campaigns.content.put(campaignId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/customers/:customer_id'
-* HTTP Method: 'PUT'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.customers.put(storeId, customerId, body)
-```
----
-* API URL: '/ecommerce/stores/:store_id/products/:product_id/variants/:variant_id'
-* HTTP Method: 'PUT'
-```javascript
-pkg.mailchimp.functions.ecommerce.stores.products.variants.put(storeId, productId, variantId, body)
-```
----
-* API URL: '/lists/:list_id/members/:subscriber_hash'
-* HTTP Method: 'PUT'
-```javascript
-pkg.mailchimp.functions.lists.members.put(listId, subscriberHash, body)
+pkg.mailchimp.functions.templates.defaultContent.get(templateId)
 ```
 ---
 
 </details>
-    
-## Flow Step
 
-As an alternative option to using scripts, you can make use of Flows and Flow Steps specifically created for the endpoint: 
-<details>
-    <summary>Click here to see the Flow Steps</summary>
-
-<br>
-
-
-
-### Generic Flow Step
-
-Generic flow step for full use of the entire endpoint and its services.
-
-<h3>Inputs</h3>
-
-<table>
-    <thead>
-    <tr>
-        <th>Label</th>
-        <th>Type</th>
-        <th>Required</th>
-        <th>Default</th>
-        <th>Visibility</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>URL (Method)</td>
-        <td>choice</td>
-        <td>yes</td>
-        <td> - </td>
-        <td>Always</td>
-        <td>
-            This is the http method to be used against the endpoint. <br>
-            Possible values are: <br>
-            <i><strong>PATCH,POST,GET,DELETE,PUT</strong></i>
-        </td>
-    </tr>
-    <tr>
-        <td>URL (Path)</td>
-        <td>choice</td>
-        <td>yes</td>
-        <td> - </td>
-        <td>Always</td>
-        <td>
-            The url to which this endpoint will send the request. This is the exact service to which the http request will be made. <br>
-            Possible values are: <br>
-            <i><strong>/batch-webhooks/{batch_webhook_id}<br>/campaign-folders/{folder_id}<br>/campaigns/{campaign_id}<br>/campaigns/{campaign_id}/feedback/{feedback_id}<br>/ecommerce/stores/{store_id}<br>/ecommerce/stores/{store_id}/carts/{cart_id}<br>/ecommerce/stores/{store_id}/carts/{cart_id}/lines/{line_id}<br>/ecommerce/stores/{store_id}/customers/{customer_id}<br>/ecommerce/stores/{store_id}/orders/{order_id}<br>/ecommerce/stores/{store_id}/orders/{order_id}/lines/{line_id}<br>/ecommerce/stores/{store_id}/products/{product_id}<br>/ecommerce/stores/{store_id}/products/{product_id}/images/{image_id}<br>/ecommerce/stores/{store_id}/products/{product_id}/variants/{variant_id}<br>/file-manager/files/{file_id}<br>/file-manager/folders/{folder_id}<br>/lists/{list_id}<br>/lists/{list_id}/interest-categories/{interest_category_id}<br>/lists/{list_id}/interest-categories/{interest_category_id}/interests/{interest_id}<br>/lists/{list_id}/members/{subscriber_hash}<br>/lists/{list_id}/members/{subscriber_hash}/notes/{note_id}<br>/lists/{list_id}/merge-fields/{merge_id}<br>/lists/{list_id}/segments/{segment_id}<br>/lists/{list_id}/webhooks/{webhook_id}<br>/template-folders/{folder_id}<br>/templates/{template_id}<br>/authorized-apps<br>/automations/{workflow_id}/actions/pause-all-emails<br>/automations/{workflow_id}/actions/start-all-emails<br>/automations/{workflow_id}/emails/{workflow_email_id}/actions/pause<br>/automations/{workflow_id}/emails/{workflow_email_id}/actions/start<br>/automations/{workflow_id}/emails/{workflow_email_id}/queue<br>/automations/{workflow_id}/removed-subscribers<br>/batches<br>/batch-webhooks<br>/campaign-folders<br>/campaigns<br>/campaigns/{campaign_id}/actions/cancel-send<br>/campaigns/{campaign_id}/actions/pause<br>/campaigns/{campaign_id}/actions/replicate<br>/campaigns/{campaign_id}/actions/resume<br>/campaigns/{campaign_id}/actions/schedule<br>/campaigns/{campaign_id}/actions/send<br>/campaigns/{campaign_id}/actions/test<br>/campaigns/{campaign_id}/actions/unschedule<br>/campaigns/{campaign_id}/feedback<br>/conversations/{conversation_id}/messages<br>/ecommerce/stores<br>/ecommerce/stores/{store_id}/carts<br>/ecommerce/stores/{store_id}/carts/{cart_id}<br>/ecommerce/stores/{store_id}/carts/{cart_id}/lines<br>/ecommerce/stores/{store_id}/customers<br>/ecommerce/stores/{store_id}/orders<br>/ecommerce/stores/{store_id}/products<br>/ecommerce/stores/{store_id}/products/{product_id}/images<br>/ecommerce/stores/{store_id}/products/{product_id}/variants<br>/file-manager/files<br>/file-manager/folders<br>/lists<br>/lists/{list_id}<br>/lists/{list_id}/interest-categories<br>/lists/{list_id}/interest-categories/{interest_category_id}<br>/lists/{list_id}/interest-categories/{interest_category_id}/interests<br>/lists/{list_id}/members<br>/lists/{list_id}/members/{subscriber_hash}/notes<br>/lists/{list_id}/merge-fields<br>/lists/{list_id}/segments<br>/lists/{list_id}/segments/{segment_id}<br>/lists/{list_id}/segments/{segment_id}/members<br>/lists/{list_id}/signup-forms<br>/lists/{list_id}/webhooks<br>/template-folders<br>/templates<br>/authorized-apps<br>/authorized-apps/{app_id}<br>/automations<br>/automations/{workflow_id}<br>/automations/{workflow_id}/emails<br>/automations/{workflow_id}/emails/{workflow_email_id}<br>/automations/{workflow_id}/emails/{workflow_email_id}/queue<br>/automations/{workflow_id}/emails/{workflow_email_id}/queue/{subscriber_hash}<br>/automations/{workflow_id}/removed-subscribers<br>/batches<br>/batches/{batch_id}<br>/batch-webhooks<br>/batch-webhooks/{batch_webhook_id}<br>/campaign-folders<br>/campaign-folders/{folder_id}<br>/campaigns<br>/campaigns/{campaign_id}<br>/campaigns/{campaign_id}/content<br>/campaigns/{campaign_id}/feedback<br>/campaigns/{campaign_id}/feedback/{feedback_id}<br>/campaigns/{campaign_id}/send-checklist<br>/conversations<br>/conversations/{conversation_id}<br>/conversations/{conversation_id}/messages<br>/conversations/{conversation_id}/messages/{message_id}<br>/ecommerce/stores<br>/ecommerce/stores/{store_id}<br>/ecommerce/stores/{store_id}/carts/{cart_id}/lines<br>/ecommerce/stores/{store_id}/carts/{cart_id}/lines/{line_id}<br>/ecommerce/stores/{store_id}/customers<br>/ecommerce/stores/{store_id}/customers/{customer_id}<br>/ecommerce/stores/{store_id}/orders<br>/ecommerce/stores/{store_id}/orders/{order_id}<br>/ecommerce/stores/{store_id}/orders/{order_id}/lines<br>/ecommerce/stores/{store_id}/orders/{order_id}/lines/{line_id}<br>/ecommerce/stores/{store_id}/products<br>/ecommerce/stores/{store_id}/products/{product_id}<br>/ecommerce/stores/{store_id}/products/{product_id}/images<br>/ecommerce/stores/{store_id}/products/{product_id}/images/{image_id}<br>/ecommerce/stores/{store_id}/products/{product_id}/variants<br>/ecommerce/stores/{store_id}/products/{product_id}/variants/{variant_id}<br>/file-manager/files<br>/file-manager/files/{file_id}<br>/file-manager/folders<br>/file-manager/folders/{folder_id}<br>/lists<br>/lists/{list_id}<br>/lists/{list_id}/abuse-reports<br>/lists/{list_id}/abuse-reports/{report_id}<br>/lists/{list_id}/activity<br>/lists/{list_id}/clients<br>/lists/{list_id}/growth-history<br>/lists/{list_id}/growth-history/{month}<br>/lists/{list_id}/interest-categories/{interest_category_id}/interests<br>/lists/{list_id}/interest-categories/{interest_category_id}/interests/{interest_id}<br>/lists/{list_id}/locations<br>/lists/{list_id}/members<br>/lists/{list_id}/members/{subscriber_hash}<br>/lists/{list_id}/members/{subscriber_hash}/activity<br>/lists/{list_id}/members/{subscriber_hash}/goals<br>/lists/{list_id}/members/{subscriber_hash}/notes<br>/lists/{list_id}/members/{subscriber_hash}/notes/{note_id}<br>/lists/{list_id}/merge-fields<br>/lists/{list_id}/merge-fields/{merge_id}<br>/lists/{list_id}/segments<br>/lists/{list_id}/segments/{segment_id}<br>/lists/{list_id}/segments/{segment_id}/members<br>/lists/{list_id}/signup-forms<br>/lists/{list_id}/webhooks<br>/lists/{list_id}/webhooks/{webhook_id}<br>/reports<br>/reports/{campaign_id}<br>/reports/{campaign_id}/abuse-reports<br>/reports/{campaign_id}/abuse-reports/{report_id}<br>/reports/{campaign_id}/advice<br>/reports/{campaign_id}/click-details<br>/reports/{campaign_id}/click-details/{link_id}<br>/reports/{campaign_id}/click-details/{link_id}/members<br>/reports/{campaign_id}/click-details/{link_id}/members/{subscriber_hash}<br>/reports/{campaign_id}/domain-performance<br>/reports/{campaign_id}/eepurl<br>/reports/{campaign_id}/email-activity<br>/reports/{campaign_id}/email-activity/{subscriber_hash}<br>/reports/{campaign_id}/locations<br>/reports/{campaign_id}/sent-to<br>/reports/{campaign_id}/sent-to/{subscriber_hash}<br>/reports/{campaign_id}/sub-reports<br>/reports/{campaign_id}/unsubscribed<br>/reports/{campaign_id}/unsubscribed/{subscriber_hash}<br>/search-campaigns<br>/search-members<br>/template-folders<br>/template-folders/{folder_id}<br>/templates<br>/templates/{template_id}<br>/templates/{template_id}/default-content<br>/automations/{workflow_id}/emails/{workflow_email_id}<br>/batches/{batch_id}<br>/batch-webhooks/{batch_webhook_id}<br>/campaign-folders/{folder_id}<br>/campaigns/{campaign_id}<br>/campaigns/{campaign_id}/feedback/{feedback_id}<br>/ecommerce/stores/{store_id}<br>/ecommerce/stores/{store_id}/carts/{cart_id}<br>/ecommerce/stores/{store_id}/carts/{cart_id}/lines/{line_id}<br>/ecommerce/stores/{store_id}/customers/{customer_id}<br>/ecommerce/stores/{store_id}/orders/{order_id}<br>/ecommerce/stores/{store_id}/orders/{order_id}/lines/{line_id}<br>/ecommerce/stores/{store_id}/products/{product_id}<br>/ecommerce/stores/{store_id}/products/{product_id}/images/{image_id}<br>/ecommerce/stores/{store_id}/products/{product_id}/variants/{variant_id}<br>/file-manager/files/{file_id}<br>/file-manager/folders/{folder_id}<br>/lists/{list_id}<br>/lists/{list_id}/interest-categories/{interest_category_id}<br>/lists/{list_id}/interest-categories/{interest_category_id}/interests/{interest_id}<br>/lists/{list_id}/members/{subscriber_hash}<br>/lists/{list_id}/members/{subscriber_hash}/notes/{note_id}<br>/lists/{list_id}/merge-fields/{merge_id}<br>/lists/{list_id}/segments/{segment_id}<br>/lists/{list_id}/segments/{segment_id}/members/{subscriber_hash}<br>/lists/{list_id}/webhooks/{webhook_id}<br>/template-folders/{folder_id}<br>/templates/{template_id}<br>/campaigns/{campaign_id}/content<br>/ecommerce/stores/{store_id}/customers/{customer_id}<br>/ecommerce/stores/{store_id}/products/{product_id}/variants/{variant_id}<br>/lists/{list_id}/members/{subscriber_hash}<br></strong></i>
-        </td>
-    </tr>
-    <tr>
-        <td>Headers</td>
-        <td>keyValue</td>
-        <td>no</td>
-        <td> - </td>
-        <td>Always</td>
-        <td>
-            Used when you want to have a custom http header for the request.
-        </td>
-    </tr>
-    <tr>
-        <td>Query Params</td>
-        <td>keyValue</td>
-        <td>no</td>
-        <td> - </td>
-        <td>Always</td>
-        <td>
-            Used when you want to have a custom query params for the http call.
-        </td>
-    </tr>
-    <tr>
-        <td>Body</td>
-        <td>json</td>
-        <td>no</td>
-        <td> - </td>
-        <td>Always</td>
-        <td>
-            A payload of data can be sent to the server in the body of the request.
-        </td>
-    </tr>
-    <tr>
-        <td>Override Settings</td>
-        <td>boolean</td>
-        <td>no</td>
-        <td> false </td>
-        <td>Always</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Follow Redirect</td>
-        <td>boolean</td>
-        <td>no</td>
-        <td> false </td>
-        <td> overrideSettings </td>
-        <td>Indicates that the resource has to be downloaded into a file instead of returning it in the response.</td>
-    </tr>
-    <tr>
-        <td>Download</td>
-        <td>boolean</td>
-        <td>no</td>
-        <td> false </td>
-        <td> overrideSettings </td>
-        <td>If true the method won't return until the file has been downloaded, and it will return all the information of the file.</td>
-    </tr>
-    <tr>
-        <td>File name</td>
-        <td>text</td>
-        <td>no</td>
-        <td></td>
-        <td> overrideSettings </td>
-        <td>If provided, the file will be stored with this name. If empty the file name will be calculated from the URL.</td>
-    </tr>
-    <tr>
-        <td>Full response</td>
-        <td> boolean </td>
-        <td>no</td>
-        <td> false </td>
-        <td> overrideSettings </td>
-        <td>Include extended information about response</td>
-    </tr>
-    <tr>
-        <td>Connection Timeout</td>
-        <td> number </td>
-        <td>no</td>
-        <td> 5000 </td>
-        <td> overrideSettings </td>
-        <td>Connect timeout interval, in milliseconds (0 = infinity).</td>
-    </tr>
-    <tr>
-        <td>Read Timeout</td>
-        <td> number </td>
-        <td>no</td>
-        <td> 60000 </td>
-        <td> overrideSettings </td>
-        <td>Read timeout interval, in milliseconds (0 = infinity).</td>
-    </tr>
-    </tbody>
-</table>
-
-<h3>Outputs</h3>
-
-<table>
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>response</td>
-        <td>object</td>
-        <td>
-            Object resulting from the response to the endpoint call.
-        </td>
-    </tr>
-    </tbody>
-</table>
-
-
-</details>
-
-For more information about how shortcuts or flow steps works, and how they are generated, take a look at the [slingr-helpgen tool](https://github.com/slingr-stack/slingr-helpgen).
-
-## Additional Flow Step
-
-
-<details>
-    <summary>Click here to see the Customs Flow Steps</summary>
-
-<br>
-
-
-
-### Custom Flow Steps Name
-
-Description of Custom Flow Steps
-
-*MANUALLY ADD THE DOCUMENTATION OF THESE FLOW STEPS HERE...*
-
-
-</details>
-
-## Additional Helpers
-*MANUALLY ADD THE DOCUMENTATION OF THESE HELPERS HERE...*

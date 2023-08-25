@@ -4,7 +4,22 @@
 
 var httpService = dependencies.http;
 
-
+/**
+ * This flow step will send generic request.
+ *
+ * @param {object} inputs
+ * {text} method, This is used to config method.
+ * {text} url, This is used to config external URL.
+ * {Array[string]} pathVariables, This is used to config path variables.
+ * {Array[string]} headers, This is used to config headers.
+ * {Array[string]} params, This is used to config params.
+ * {string} body, This is used to send body request.
+ * {boolean} followRedirects, This is used to config follow redirects.
+ * {boolean} download, This is used to config download.
+ * {boolean} fullResponse, This is used to config full response.
+ * {number} connectionTimeout, Read timeout interval, in milliseconds.
+ * {number} readTimeout, Connect timeout interval, in milliseconds.
+ */
 step.apiCallMailchimp = function (inputs) {
 
 	var inputsLogic = {
@@ -30,7 +45,7 @@ step.apiCallMailchimp = function (inputs) {
 
 
 	var options = {
-		path: config.get("mailChimpApiUrl") + parse(inputsLogic.url.urlValue, inputsLogic.url.paramsValue),
+		url: config.get("MAILCHIMP_API_BASE_URL") + parse(inputsLogic.url.urlValue, inputsLogic.url.paramsValue),
 		params: inputsLogic.params,
 		headers: inputsLogic.headers,
 		body: inputsLogic.body,
@@ -68,8 +83,6 @@ step.apiCallMailchimp = function (inputs) {
 		case 'trace':
 			return httpService.trace(setRequestHeaders(options));
 	}
-
-	//REPLACE THIS WITH YOUR OWN CODE
 
 	return null;
 };

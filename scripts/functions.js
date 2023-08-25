@@ -19,7 +19,7 @@ function handleRequestWithRetry(requestFn, options, callbackData, callbacks) {
     try {
         return requestFn(options, callbackData, callbacks);
     } catch (error) {
-        sys.logs.info("[mailchimp] Handling request "+ JSON.stringify(error));
+        sys.logs.info("[mailchimp] Handling request "+JSON.stringify(error));
     }
 }
 
@@ -2570,11 +2570,6 @@ exports.options = function(url, httpOptions, callbackData, callbacks) {
 
 exports.utils = {};
 
-exports.utils.getConfiguration = function (property) {
-    sys.logs.debug('[pandadoc] Get property: '+property);
-    return config.get(property);
-};
-
 exports.utils.parseTimestamp = function(dateString) {
     if (!dateString) {
         return null;
@@ -2628,20 +2623,14 @@ exports.utils.getConfiguration = function (property) {
     return config.get(property);
 };
 
-exports.utils.verifySignature = function (body, signature) {
-    sys.logs.info("Checking signature");
-    var secret = config.get("webhookSecret");
-    if (!secret || secret === "" ||
-        !sys.utils.crypto.verifySignatureWithHmac(body, signature.replace("sha1=",""), secret, "HmacSHA256")) {
-        sys.logs.error("Invalid signature or body");
-        return false;
-    }
-    return true;
-};
 
 /****************************************************
  Private helpers
  ****************************************************/
+
+var concatQuery = function (url, key, value) {
+    return url + ((!url || url.indexOf('?') < 0) ? '?' : '&') + key + "=" + value;
+}
 
 var checkHttpOptions = function (url, options) {
     options = options || {};
@@ -2676,7 +2665,7 @@ var parse = function (str) {
         if (arguments.length > 1) {
             var args = arguments[1], i = 0;
             return str.replace(/(:(?:\w|-)+)/g, () => {
-                if (typeof (args[i]) != 'string') throw new Error('Invalid type of argument: [' + args[i] + '] for url [' + str + '].');
+                if (typeof (args[i]) != 'string' && typeof (args[i]) != 'number') throw new Error('Invalid type of argument: [' + args[i] + '] for url [' + str + '].');
                 return args[i++];
             });
         } else {
@@ -2690,7 +2679,6 @@ var parse = function (str) {
         throw err;
     }
 }
-
 
 /****************************************************
  Configurator
@@ -2708,8 +2696,9 @@ var Mailchimp = function (options) {
  ****************************************************/
 
 function setApiUri(options) {
+    var API_URL = config.get("mailChimpApiUrl");
     var url = options.path || "";
-    options.url = config.get("mailChimpApiUrl") + url;
+    options.url = API_URL + url;
     sys.logs.debug('[mailchimp] Set url: ' + options.path + "->" + options.url);
     return options;
 }
