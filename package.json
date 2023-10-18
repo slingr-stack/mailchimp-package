@@ -61,7 +61,7 @@
     "metadata": [
         {
             "type": "script",
-            "namespace": "api",
+            "namespace": "functions",
             "path": "/scripts/functions.js"
         },
         {
@@ -71,42 +71,42 @@
         },
         {
             "type": "flowStep",
-            "namespace": "steps",
+            "namespace": "apiCallMailchimp",
             "path": "/flowSteps/apiCallMailchimp"
         },
         {
             "type": "flowStep",
-            "namespace": "steps",
+            "namespace": "listCampaignsMailchimp",
             "path": "/flowSteps/listCampaignsMailchimp"
         },
         {
             "type": "flowStep",
-            "namespace": "steps",
+            "namespace": "campaignInfoMailchimp",
             "path": "/flowSteps/campaignInfoMailchimp"
         },
         {
             "type": "flowStep",
-            "namespace": "steps",
+            "namespace": "addCampaignMailchimp",
             "path": "/flowSteps/addCampaignMailchimp"
         },
         {
             "type": "flowStep",
-            "namespace": "steps",
+            "namespace": "listInfoMailchimp",
             "path": "/flowSteps/listInfoMailchimp"
         },
         {
             "type": "flowStep",
-            "namespace": "steps",
+            "namespace": "createNewListMailchimp",
             "path": "/flowSteps/createNewListMailchimp"
         },
         {
             "type": "flowStep",
-            "namespace": "steps",
+            "namespace": "addMemberToListMailchimp",
             "path": "/flowSteps/addMemberToListMailchimp"
         },
         {
             "type": "flowStep",
-            "namespace": "steps",
+            "namespace": "listMembersInfoMailchimp",
             "path": "/flowSteps/listMembersInfoMailchimp"
         }
     ]
