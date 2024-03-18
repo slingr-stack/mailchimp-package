@@ -22,14 +22,14 @@
             "label": "Server",
             "type": "label",
             "description": "",
-            "value": "config.apiKey.substring(apiKey.lastIndexOf('-') + 1)"
+            "value": "config.apiKey.substring(config.apiKey.lastIndexOf('-') + 1)"
         },
         {
             "name": "mailChimpServer",
             "label": "MailChimp Server",
             "type": "label",
             "description": "",
-            "value": "config.server == null || server.trim() === '' ? 'us1' : server.trim();"
+            "value": "config.server == null || config.server.trim() === '' ? 'us1' : config.server.trim();"
         },
         {
             "name": "webhook",
