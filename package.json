@@ -18,20 +18,6 @@
             "required": true
         },
         {
-            "name": "server",
-            "label": "Server",
-            "type": "label",
-            "description": "",
-            "value": "config.apiKey.substring(config.apiKey.lastIndexOf('-') + 1)"
-        },
-        {
-            "name": "mailChimpServer",
-            "label": "MailChimp Server",
-            "type": "label",
-            "description": "",
-            "value": "config.server == null || config.server.trim() === '' ? 'us1' : config.server.trim();"
-        },
-        {
             "name": "webhook",
             "label": "Webhook URL",
             "type": "label",
@@ -39,10 +25,10 @@
         },
         {
             "name": "MAILCHIMP_API_BASE_URL",
-            "label": "MailChimp Api Url",
+            "label": "MailChimp API URL",
             "type": "label",
             "description": "",
-            "value": " \"https://\" + config.mailChimpServer + \".api.mailchimp.com/3.0\";"
+            "value": " \"https://\" + !config.apiKey ? '{serverUrl}' : config.apiKey.substring(config.apiKey.lastIndexOf('-') + 1) + \".api.mailchimp.com/3.0\";"
         }
     ],
     "events": [
