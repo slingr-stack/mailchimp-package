@@ -1,11 +1,11 @@
 {
     "name": "mailchimp",
-    "label": "Mailchimp Package",
+    "label": "Mailchimp",
     "dependencies": [
         {
             "type": "service",
             "name": "http",
-            "version": "v1.2.6",
+            "version": "v1.8.0",
             "instanceId": "shared"
         }
     ],
@@ -63,51 +63,15 @@
             "type": "script",
             "namespace": "api",
             "path": "/scripts/api.js"
+        },{
+            "type": "script",
+            "namespace": "utils",
+            "path": "/scripts/utils.js"
         },
         {
             "type": "listener",
             "namespace": "listeners",
             "path": "/listeners/listeners.js"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "apiCallMailchimp",
-            "path": "/flowSteps/apiCallMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "listCampaignsMailchimp",
-            "path": "/flowSteps/listCampaignsMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "campaignInfoMailchimp",
-            "path": "/flowSteps/campaignInfoMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "addCampaignMailchimp",
-            "path": "/flowSteps/addCampaignMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "listInfoMailchimp",
-            "path": "/flowSteps/listInfoMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "createNewListMailchimp",
-            "path": "/flowSteps/createNewListMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "addMemberToListMailchimp",
-            "path": "/flowSteps/addMemberToListMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "listMembersInfoMailchimp",
-            "path": "/flowSteps/listMembersInfoMailchimp"
         }
     ]
 }
