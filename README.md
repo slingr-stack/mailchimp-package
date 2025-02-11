@@ -1,4 +1,5 @@
 # Overview
+Repo: [https://github.com/slingr-stack/mailchimp-package](https://github.com/slingr-stack/mailchimp-package)
 
 The MailChimp package allows syncing email activity and campaign stats with your database, manage lists, view and 
 control automation workflows, and testing different calls and packages before pushing to production.
@@ -7,7 +8,6 @@ Some features are:
 
 - Authentication
 - Shortcuts for the REST API
-- Helpers to convert date times
 
 In most cases, you will be using the provided shortcuts to access the API. For example, you could use the REST API
 directly by doing an HTTP request like this:
