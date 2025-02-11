@@ -108,65 +108,6 @@ exports.delete = function(path, httpOptions, callbackData, callbacks) {
     return httpService.delete(Mailchimp(options), callbackData, callbacks);
 };
 
-/**
- * Sends an HTTP HEAD request to the specified URL with the provided HTTP options.
- *
- * @param {string} path         - The path to send the HEAD request to.
- * @param {object} httpOptions  - The options to be included in the HEAD request check http-service documentation.
- * @param {object} callbackData - Additional data to be passed to the callback functions. [optional]
- * @param {object} callbacks    - The callback functions to be called upon completion of the HEAD request. [optional]
- * @return {object}             - The response of the HEAD request.
- */
-exports.head = function(path, httpOptions, callbackData, callbacks) {
-    let options = checkHttpOptions(path, httpOptions);
-    return httpService.head(Mailchimp(options), callbackData, callbacks);
-};
-
-/**
- * Sends an HTTP OPTIONS request to the specified URL with the provided HTTP options.
- *
- * @param {string} path         - The path to send the OPTIONS request to.
- * @param {object} httpOptions  - The options to be included in the OPTIONS request check http-service documentation.
- * @param {object} callbackData - Additional data to be passed to the callback functions. [optional]
- * @param {object} callbacks    - The callback functions to be called upon completion of the OPTIONS request. [optional]
- * @return {object}             - The response of the OPTIONS request.
- */
-exports.options = function(path, httpOptions, callbackData, callbacks) {
-    let options = checkHttpOptions(path, httpOptions);
-    return httpService.options(Mailchimp(options), callbackData, callbacks);
-};
-
-/**
- * Verifies the signature of the given body using the provided signature coded in sha1 or sha256.
- *
- * @param {string} body                 - The body to be verified.
- * @param {string} signature            - The signature to be checked.
- * @param {string} signature256         - The signature256 to be checked.
- * @return {boolean}                    - True if the signature is valid, false otherwise.
- */
-exports.utils.verifySignature = function (body, signature, signature256) {
-    sys.logs.info("Checking signature");
-    let verified = true;
-    let verified256 = true;
-    let secret = config.get("webhookSecret");
-    if (!body || body === "") {
-        sys.logs.warn("The body is null or empty");
-        return false;
-    }
-    if (!secret || secret === "" || !signature || signature === "" ||
-        !sys.utils.crypto.verifySignatureWithHmac(body, signature.replace("sha1=",""), secret, "HmacSHA1")) {
-        sys.logs.warn("Invalid signature sha1");
-        verified = false;
-    }
-    if (!secret || secret === "" ||  !signature256 ||!signature256 ||
-        !sys.utils.crypto.verifySignatureWithHmac(body, signature.replace("sha256=",""), secret, "HmacSHA256")) {
-        sys.logs.warn("Invalid signature sha 256");
-        verified256 = false;
-    }
-
-    return (verified || verified256);
-};
-
 /****************************************************
  Private helpers
  ****************************************************/
