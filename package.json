@@ -28,7 +28,7 @@
             "label": "MailChimp API URL",
             "type": "label",
             "description": "",
-            "value": " \"https://\" + !config.apiKey ? '{serverUrl}' : config.apiKey.substring(config.apiKey.lastIndexOf('-') + 1) + \".api.mailchimp.com/3.0\";"
+            "value": " \"https://\" + (config.apiKey == null || config.apiKey.trim() === '' ? 'us1' :  config.apiKey.substring(config.apiKey.lastIndexOf('-') + 1)).trim() + \".api.mailchimp.com/3.0\";"
         }
     ],
     "events": [
