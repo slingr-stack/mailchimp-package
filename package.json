@@ -1,12 +1,11 @@
 {
     "name": "mailchimp",
-    "label": "Mailchimp Package",
+    "label": "Mailchimp",
     "dependencies": [
         {
             "type": "service",
             "name": "http",
-            "version": "v1.2.6",
-            "instanceId": "shared"
+            "version": "v1.8.0"
         }
     ],
     "configuration": [
@@ -18,37 +17,17 @@
             "required": true
         },
         {
-            "name": "server",
-            "label": "Server",
-            "type": "label",
-            "description": "",
-            "value": "config.apiKey.substring(config.apiKey.lastIndexOf('-') + 1)"
-        },
-        {
-            "name": "mailChimpServer",
-            "label": "MailChimp Server",
-            "type": "label",
-            "description": "",
-            "value": "config.server == null || config.server.trim() === '' ? 'us1' : config.server.trim();"
-        },
-        {
             "name": "webhook",
             "label": "Webhook URL",
             "type": "label",
             "value": "@config.WEBHOOK_URL"
         },
         {
-            "name": "config",
-            "label": "Configuration",
-            "value": "You will need to configure the Webhook URL in each individual MailChimp list. Please refer to the following web site for information: <a href='http://apidocs.mailchimp.com/webhooks/#configuring-webhooks' target='_blank'>http://apidocs.mailchimp.com/webhooks/#configuring-webhooks</a>",
-            "type": "info"
-        },
-        {
             "name": "MAILCHIMP_API_BASE_URL",
-            "label": "MailChimp Api Url",
+            "label": "MailChimp API URL",
             "type": "label",
             "description": "",
-            "value": " \"https://\" + config.mailChimpServer + \".api.mailchimp.com/3.0\";"
+            "value": " \"https://\" + (config.apiKey == null || config.apiKey.trim() === '' ? 'us1' :  config.apiKey.substring(config.apiKey.lastIndexOf('-') + 1)).trim() + \".api.mailchimp.com/3.0\";"
         }
     ],
     "events": [
@@ -63,51 +42,15 @@
             "type": "script",
             "namespace": "api",
             "path": "/scripts/api.js"
+        },{
+            "type": "script",
+            "namespace": "utils",
+            "path": "/scripts/utils.js"
         },
         {
             "type": "listener",
             "namespace": "listeners",
-            "path": "/listeners/listeners.js"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "apiCallMailchimp",
-            "path": "/flowSteps/apiCallMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "listCampaignsMailchimp",
-            "path": "/flowSteps/listCampaignsMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "campaignInfoMailchimp",
-            "path": "/flowSteps/campaignInfoMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "addCampaignMailchimp",
-            "path": "/flowSteps/addCampaignMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "listInfoMailchimp",
-            "path": "/flowSteps/listInfoMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "createNewListMailchimp",
-            "path": "/flowSteps/createNewListMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "addMemberToListMailchimp",
-            "path": "/flowSteps/addMemberToListMailchimp"
-        },
-        {
-            "type": "flowStep",
-            "namespace": "listMembersInfoMailchimp",
-            "path": "/flowSteps/listMembersInfoMailchimp"
+            "path": "/listeners/webhook.js"
         }
     ]
 }
