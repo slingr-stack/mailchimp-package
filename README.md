@@ -1,8 +1,7 @@
 # Overview
 Repo: [https://github.com/slingr-stack/mailchimp-package](https://github.com/slingr-stack/mailchimp-package)
 
-The MailChimp package allows syncing email activity and campaign stats with your database, manage lists, view and 
-control automation workflows, and testing different calls and packages before pushing to production.
+The MailChimp [package](https://platform-docs.slingr.io/dev-reference/data-model-and-logic/packages/) allows syncing email activity and campaign stats with your database, managing lists, viewing and controlling automation workflows, and testing different calls and packages before pushing to production.
 
 Some features are:
 
@@ -18,8 +17,8 @@ var res = pkg.mailchimp.api.get('/lists');
 
 ## Configuration
 
-First, you will need to set up an account in MailChimp. Then you will be able to configure the package you will
-need to generate an API key. You can find more information about that [here](http://kb.mailchimp.com/integrations/api-integrations/about-api-keys).
+First, you will need to set up an account on MailChimp. Then, you will be able to configure the package.
+You will need to generate an API key. You can find more information about that [here](http://kb.mailchimp.com/integrations/api-integrations/about-api-keys).
 
 #### API key
 
@@ -30,23 +29,16 @@ Just copy the generated API key to this field.
 **Type**: text
 **Mandatory**: true
 
-#### MailChimp API URL
-
-The URL of the MailChimp API where the requests are performed.
-
-**Name**: `MAILCHIMP_API_BASE_URL`
-**Type**: label
-
 #### Webhook URL
 
-This is the URL you should configure for webhooks in Mailchimp. Notice that you need to configure the webhook URL on 
+This is the URL you should configure for webhooks in MailChimp. Notice that you need to configure the webhook URL on 
 each MailChimp list. Please refer to the [webhooks documentation](https://mailchimp.com/developer/marketing/guides/sync-audience-data-webhooks/) 
 for more information on how to configure them.
 
 **Name**: `webhook`
 **Type**: label
 
-# Javascript API
+# JavaScript API
 
 ## HTTP requests
 You can make `PATCH`,`POST`,`GET`,`DELETE`,`PUT` requests to the [mailchimp API](https://mailchimp.com/developer/marketing/guides/quick-start/) like this:
@@ -61,8 +53,8 @@ var response = pkg.mailchimp.api.put('/lists/:list_id/members/:subscriber_hash',
 var response = pkg.mailchimp.api.put('/lists/:list_id/members/:subscriber_hash')
 ```
 
-Please take a look at the documentation of the [HTTP service](https://github.com/slingr-stack/http-service)
-for more information about generic requests.
+Please refer to the [HTTP service](https://github.com/slingr-stack/http-service)
+documentation for more information on generic requests.
 
 ## Dependencies
 * HTTP Service

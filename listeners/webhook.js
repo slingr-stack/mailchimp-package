@@ -13,14 +13,9 @@ listeners.defaultWebhookMailchimp = {
         }
     },
     callback: function(event) {
-        sys.logs.info('Received Mailchimp webhook. Processing and triggering a package event.');
-        var body = JSON.stringify(event.data.body);
+        sys.logs.info('[mailchimp] Received Mailchimp webhook. Processing and triggering a package event.');
         var params = event.data.parameters;
-        sys.logs.info('Valid webhook received. Triggering event.');
-        sys.events.triggerEvent('mailchimp:webhook', {
-            body: body,
-            params: params
-        });
+        sys.events.triggerEvent('mailchimp:webhook', event.data);
         return "ok";
     }
 };
